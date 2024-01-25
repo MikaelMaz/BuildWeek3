@@ -10,3 +10,67 @@
     background-color: #E2F0FE !important;
     border: 2px solid #0A66C2 !important;
 }
+
+a:hover
+{
+    text-decoration: underline !important;
+}
+
+.btnDisponibile
+{
+    border-radius: 20px !important
+}
+
+.btnDisponibile:hover
+{
+    background-color:midnightblue  !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.Card1, .Card2{
+    line-height: 0.5rem;
+    border-radius: 20px;
+}
+
+button
+{
+    margin:0 !important;
+    width: fit-content !important;
+}
+
+.ButtonContainer
+{
+    margin:0 !important;
+    padding: 0 !important;
+}
+
+.ButtonContainer button
+{
+    margin:5px !important;
+}
+
+.OtherButton
+{
+    border: 1px solid gray !important;
+    border-radius: 20px !important;
+    color: gray !important;
+}
+
+.OtherButton:hover
+{
+    border: 2px solid black !important;
+    background-color: rgb(222, 221, 221) !important;
+}
+
+.rowProfile {
+    line-height: 0.8rem;
+}
+
+.cardProfilo
+{
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
