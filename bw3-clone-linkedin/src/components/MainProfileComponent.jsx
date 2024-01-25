@@ -81,8 +81,8 @@ export default function MainProfileComponent() {
             </div>
           </Carousel.Item>
 
-          <Carousel.Item className='Card2 myCarouselBg p-3 w-100'>
-          <div className='w-75 p-3 border mycarouselItem'>
+          <Carousel.Item className='Card2 rounded-3 myCarouselBg p-3 w-100'>
+          <div className='w-75 p-3 border rounded-3 mycarouselItem'>
             <div className="d-flex justify-content-between">
               <div className="d-flex flex-column">
                 <p classNama="fw-bolder"> Fai sapere che stai facendo selezione </p>
@@ -94,8 +94,8 @@ export default function MainProfileComponent() {
             </div>
           </Carousel.Item>
 
-          <Carousel.Item className='Card3 p-3 w-100'>
-            <div className='w-75 p-3 border mycarouselItem'>
+          <Carousel.Item className='Card3 rounded-3 myCarouselBg p-3 w-100'>
+            <div className='w-75 p-3 border rounded-3 mycarouselItem'>
             <div className="d-flex justify-content-between">
             <div className="d-flex flex-column">
               <p classNama="fw-bolder"> Metti in risalto le tue competenze </p>
