@@ -80,7 +80,30 @@ button
     margin: auto !important;
 }
 
-.myCarouselBg
+/* .myCarouselBg
 {
     background-color: rgb(194, 189, 189);
+} */
+
+.mycarouselItem1 {
+    background-color: #DDE7F1;
+}
+
+.btnIconCamera {
+    border-radius: 50%;
+}
+
+/* .imgBanner {
+    background-size: 'cover';
+      background-position: 'center';
+      background-repeat: 'no-repeat';
+      width: '100%';
+      height: '100%';
+      position: 'absolute';
+      top: 0;
+      left: 0;
+} */
+
+.userBio {
+    margin-bottom: 0.8rem;
 }
