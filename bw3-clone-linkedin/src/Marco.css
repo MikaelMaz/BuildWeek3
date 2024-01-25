@@ -19,7 +19,9 @@
   
   .top-nav {
     margin-left: 8%;
-    border-right: solid #c4c2c2 1px;
+  }
+  .nav-right{
+    border-left: solid #c4c2c2 1px;
   }
   
   .nav-link {
