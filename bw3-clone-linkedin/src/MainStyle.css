@@ -1,0 +1,12 @@
+.btnCheck
+{
+    border: 1px solid #0A66C2 !important;
+    border-radius: 20px !important;
+    color: #0A66C2 !important;
+}
+
+.btnCheck:hover
+{
+    background-color: #E2F0FE !important;
+    border: 2px solid #0A66C2 !important;
+}
