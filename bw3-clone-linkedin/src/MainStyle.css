@@ -74,3 +74,13 @@ button
     overflow: hidden;
     scroll-behavior: smooth;
 }
+
+.mycarouselItem
+{
+    margin: auto !important;
+}
+
+.myCarouselBg
+{
+    background-color: rgb(194, 189, 189);
+}

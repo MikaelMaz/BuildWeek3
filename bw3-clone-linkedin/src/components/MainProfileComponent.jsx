@@ -66,7 +66,8 @@ export default function MainProfileComponent() {
         <Carousel className="cardProfilo d-flex ">
           {/* aggiungere rounded + line-height alla card da css */}
 
-          <Carousel.Item className='Card1 p-3 w-75' style={{ background: '#DDE7F1' }}>
+          <Carousel.Item className='Card1 p-3 w-100' style={{ background: '#DDE7F1' }}>
+          <div className='w-75 border mycarouselItem'>
             <div className="d-flex justify-content-between">
               <div className="d-flex flex-column">
                 <div>
@@ -77,9 +78,11 @@ export default function MainProfileComponent() {
               </div>
               <i className="bi bi-pencil"></i>
             </div>
+            </div>
           </Carousel.Item>
 
-          <Carousel.Item className='Card2 p-3 border w-75'>
+          <Carousel.Item className='Card2 myCarouselBg p-3 w-100'>
+          <div className='w-75 p-3 border mycarouselItem'>
             <div className="d-flex justify-content-between">
               <div className="d-flex flex-column">
                 <p classNama="fw-bolder"> Fai sapere che stai facendo selezione </p>
@@ -88,15 +91,20 @@ export default function MainProfileComponent() {
               <i className="bi bi-x-lg"></i>
             </div>
             <a href="#" className="fw-bold" style={{ textDecoration: 'none' }}> Inizia </a>
+            </div>
           </Carousel.Item>
 
-          <Carousel.Item className='Card3 p-3 border w-75'>
+          <Carousel.Item className='Card3 p-3 w-100'>
+            <div className='w-75 p-3 border mycarouselItem'>
+            <div className="d-flex justify-content-between">
             <div className="d-flex flex-column">
               <p classNama="fw-bolder"> Metti in risalto le tue competenze </p>
               <p> e trova il lavoro dei tuoi sogni</p>
             </div>
             <i className="bi bi-x-lg"></i>
+            </div>
             <a href="#" className="fw-bold" style={{ textDecoration: 'none' }}> Inizia </a>
+            </div>
           </Carousel.Item>
           
           
