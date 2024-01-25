@@ -30,7 +30,7 @@ a:hover
     display: none !important;
 }
 
-.Card1, .Card2{
+.Card1, .Card2, .Card3{
     line-height: 0.5rem;
     border-radius: 20px;
 }
