@@ -41,12 +41,12 @@ export const addExperience = (experience, UserID) => {
         'Content-Type': 'application/json' // Aggiunto il tipo di contenuto per assicurare una corretta interpretazione da parte del server
       },
       body: JSON.stringify({
-          role: experience.role,
-          company: experience.company,
-          startDate: experience.startDate,
-          endDate: experience.endDate, // could be null
-          description: experience.description,
-          area: experience.area
+          "role": experience.role,
+          "company": experience.company,
+          "startDate": experience.startDate,
+          "endDate": experience.endDate, // could be null
+          "description": experience.description,
+          "area": experience.area
           // experience
       })
     })

@@ -52,14 +52,14 @@ console.log(experience)
           <input onChange={(e) => setExperience({...experience, role: e.target.value})} type="text" className="form-control" placeholder="Inserisci il tuo ruolo" />
           <input onChange={(e) => setExperience({...experience, startDate: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua data d'inizio" />
           <input onChange={(e) => setExperience({...experience, endDate: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua data di fine" />
-          <input onChange={(e) => setExperience({...experience, description: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua descrizioe" />
+          <input onChange={(e) => setExperience({...experience, description: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua descrizione" />
           <input onChange={(e) => setExperience({...experience, area: e.target.value})} type="text" className="form-control" placeholder="Inserisci il tuo luogo" />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {handleClose(); dispatch(addExperience(experience.company, user[0]._id))}}>
+          <Button variant="primary" onClick={() => {handleClose(); dispatch(addExperience(experience, user[0]._id))}}>
             Save Changes
           </Button>
         </Modal.Footer>
