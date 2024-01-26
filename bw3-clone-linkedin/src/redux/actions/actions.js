@@ -17,6 +17,24 @@ export const addUserProfile = (user) => {
     }
 }
 
+export const UserExperience = (UserID) => {
+  return (dispatch) =>
+  {
+    fetch((experiencesListUrl +UserID+'/experiences'), {
+      headers: {
+        Authorization: 'Bearer ' + apiKey
+      }
+    }).then(response => response.json())
+    .then(json =>{
+      console.log(json)
+      return dispatch({ type: 'USER_EXPERIENCE', payload: json })
+    })
+  }
+}
+
+
+
+
 /* export const addExperienceList = (user) => {
   return (dispatch, getState) => {
       fetch(experiencesListUrl, {

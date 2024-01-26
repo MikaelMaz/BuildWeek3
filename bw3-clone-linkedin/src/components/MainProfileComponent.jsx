@@ -4,8 +4,8 @@ import Carousel from 'react-bootstrap/Carousel'
 import '../MainStyle.css'
 import { apiKey, userProfileUrl } from '../config/Dati'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUserProfile } from '../redux/actions/actions'
-
+import { addUserProfile, UserExperience } from '../redux/actions/actions'
+import InfoComponent from './InfoComponent'
 
 export default function MainProfileComponent() {
   const dispatch = useDispatch()
@@ -16,8 +16,10 @@ export default function MainProfileComponent() {
 
   const user = useSelector(state => state.user)
   console.log(user)
+
   return (
      user && user.length > 0 && (
+      <>
         <div className='border p-3 rounded' >
           {/* <div className='text-end'>
              <img src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" 
@@ -130,6 +132,8 @@ export default function MainProfileComponent() {
             </Carousel.Item>
           </Carousel>
         </div>
+        <InfoComponent id={user[0]._id}/>
+        </>
     )
    )
 }

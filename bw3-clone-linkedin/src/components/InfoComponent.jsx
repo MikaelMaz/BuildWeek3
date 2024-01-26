@@ -1,7 +1,8 @@
 import React from 'react'
 import {Container, Row, Col, Button} from 'react-bootstrap'
+import ExperienceComponent from './ExperienceComponent'
 
-export default function InfoComponent() {
+export default function InfoComponent({id}) {
   return (
     <>
         {/* Consigliato per te */}
@@ -121,19 +122,7 @@ export default function InfoComponent() {
           </Row>
         </Container>
         {/* Esperienza */}
-        <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
-          <Row>
-            <Col xs={9}>
-              <p className='fw-bold fs-5'>Esperienza</p>
-            </Col>
-            <Col xs={1}> 
-              <Button variant='' size='sm' className='rounded-5 fw-bold '><i className="bi bi-plus-lg"></i></Button>
-            </Col>
-            <Col xs={1}>
-              <Button variant='' size='sm' className='rounded-5 fw-bold'><i className="bi bi-pencil"></i></Button>
-            </Col>
-          </Row>
-        </Container>
+        <ExperienceComponent userid={id}/>
         {/* Formazione */}
         <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
           <Row>
