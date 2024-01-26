@@ -15,6 +15,7 @@ export default function ProfilePage() {
             <Row>
                 <Col xs={12} md={8}>
                     <MainProfileComponent/>
+                    <InfoComponent/>
                 </Col>
                 <Col xs={12} md={4}>
                     <AsideComponent/>

@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch , useSelector } from 'react-redux'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { UserExperience } from '../redux/actions/actions'
-export default function ExperienceComponent({userid}) {
+export default function ExperienceComponent() {
+
     const dispatch = useDispatch()
-
-    dispatch(UserExperience(userid))
-
-    
+    const user = useSelector(state => state.user)
+    useEffect(()=>{
+      if(user.length>0){
+        dispatch(UserExperience(user[0]._id))
+      }
+    }, [user])
 
     return (
         <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>

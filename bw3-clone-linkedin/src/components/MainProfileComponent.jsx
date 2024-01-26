@@ -19,7 +19,6 @@ export default function MainProfileComponent() {
 
   return (
      user && user.length > 0 && (
-      <>
         <div className='border p-3 rounded' >
           {/* <div className='text-end'>
              <img src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" 
@@ -132,8 +131,6 @@ export default function MainProfileComponent() {
             </Carousel.Item>
           </Carousel>
         </div>
-        <InfoComponent id={user[0]._id}/>
-        </>
     )
    )
 }
