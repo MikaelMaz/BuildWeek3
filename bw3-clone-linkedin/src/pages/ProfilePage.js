@@ -11,13 +11,13 @@ export default function ProfilePage() {
     <>
         <NavbarComponent/>
 
-        <Container>
+        <Container className='py-4'>
             <Row>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={8}>
                     <MainProfileComponent/>
                     <InfoComponent/>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={4}>
                     <AsideComponent/>
                 </Col>
             </Row>
