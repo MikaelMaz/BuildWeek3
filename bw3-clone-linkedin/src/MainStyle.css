@@ -91,6 +91,8 @@ button
 
 .btnIconCamera {
     border-radius: 50%;
+    right:1.5rem;
+    top:1rem;
 }
 
 /* .imgBanner {
@@ -106,4 +108,13 @@ button
 
 .userBio {
     margin-bottom: 0.8rem;
+}
+
+.mainBg
+{
+    height: 25%;
+    width:100%;
+    margin:-1rem;
+    background-image: url("https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg");
+    z-index: -1!important;
 }
