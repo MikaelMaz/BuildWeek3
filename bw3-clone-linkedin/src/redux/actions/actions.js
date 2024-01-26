@@ -1,5 +1,5 @@
 import { apiKey, usersListUrl, experiencesListUrl, userProfileUrl } from '../../config/Dati'
-import axios from 'axios'
+/*import axios from 'axios'*/
 
 export const addUserProfile = (user) => {
     return (dispatch, getState) => {
@@ -32,6 +32,21 @@ export const UserExperience = (UserID) => {
   }
 }
 
+export const addExperience = (experience, UserID) => {
+  return (dispatch) => {
+    fetch((experiencesListUrl + UserID + '/experiences'), {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json' // Aggiunto il tipo di contenuto per assicurare una corretta interpretazione da parte del server
+      },
+      body: JSON.stringify(experience)
+    })
+    .catch(err => console.error(err));
+    /*console.log(experience)*/
+    return dispatch({ type: 'ADD_EXPERIENCE', payload: experience })
+  };
+};
 
 
 

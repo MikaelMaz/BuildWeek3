@@ -15,6 +15,11 @@ export const bigReducers = (state = [], action) => {
         ...state,
         experience: [action.payload]
       })
+      case 'ADD_EXPERIENCE':
+        return ({
+          ...state,
+          experience: [...state.experience, action.payload]
+        })
       default:
         break;
     }
