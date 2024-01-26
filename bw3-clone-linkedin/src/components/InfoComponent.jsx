@@ -2,7 +2,7 @@ import React from 'react'
 import {Container, Row, Col, Button} from 'react-bootstrap'
 import ExperienceComponent from './ExperienceComponent'
 
-export default function InfoComponent({id}) {
+export default function InfoComponent() {
   return (
     <>
         {/* Consigliato per te */}
@@ -122,7 +122,7 @@ export default function InfoComponent({id}) {
           </Row>
         </Container>
         {/* Esperienza */}
-        <ExperienceComponent userid={id}/>
+        <ExperienceComponent />
         {/* Formazione */}
         <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
           <Row>
