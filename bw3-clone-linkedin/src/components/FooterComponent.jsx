@@ -51,21 +51,21 @@ export default function FooterComponent() {
                   <Col xs={12} md={8} lg={8} xl={8} xxl={8} id='RightPartFooterLeftSide'>
                     <ul>
                       <li className='d-flex align-items-start'>
-                        <div><i className="bi bi-question-circle-fill"></i></div>
+                        <div className='pe-2'><i className="bi bi-question-circle-fill"></i></div>
                         <div>
                           <p>Domande?</p>
                           <p>Visita il nostro centro assistenza</p>
                         </div>
                       </li>
                       <li className='d-flex align-items-start'>
-                        <div><i className="bi bi-gear-fill"></i></div>
+                        <div className='pe-2'><i className="bi bi-gear-fill"></i></div>
                         <div>
                           <p>Gestisci il tuo account e la tua privacy</p>
                           <p>Vai alle impostazioni</p>
                         </div>
                       </li>
                       <li className='d-flex align-items-start'>
-                        <div><i className="bi bi-shield-shaded"></i></div>
+                        <div className='pe-2'><i className="bi bi-shield-shaded"></i></div>
                         <div>
                           <p>Trasparenza sui contenuti consigliati</p>
                           <p>Scopri di più sui contenuti consigliati.</p>
