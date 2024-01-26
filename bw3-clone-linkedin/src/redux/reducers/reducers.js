@@ -1,9 +1,18 @@
 import React from 'react'
+import {addUserProfile, addExperienceList} from '../actions/actions'
 
-export const bigReducers = () => {
 
+export const bigReducers = (state = [], action) => {
+
+    switch (action.type) {
+      case 'ADD_USER':
+        return [...state, action.payload]
+        
+       
     
-  return (
-    <div>reducers</div>
-  )
+      default:
+        break;
+    }
+    
+    return state
 }

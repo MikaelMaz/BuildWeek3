@@ -3,27 +3,17 @@ import { Image, Row, Col, Button, Dropdown} from 'react-bootstrap'
 import Carousel from 'react-bootstrap/Carousel'
 import '../MainStyle.css'
 import { apiKey, userProfileUrl } from '../config/Dati'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUserProfile } from '../redux/actions/actions'
 
 
 export default function MainProfileComponent() {
-
-  const [userList, setUserList] = useState([])
-
-  useEffect(() => {
-    fetch(userProfileUrl, {
-      headers: {
-        Authorization: 'Bearer ' + apiKey
-      }
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        console.log(json)
-        setUserList(json)
-      })
-  }, [])
+  const dispatch = useDispatch()
+  dispatch(addUserProfile)
+  const user = useSelector(state => state.user)
 
   return (
-    // userList && userList.length > 0 && (
+     user && user.length > 0 && (
         <div className='border p-3 rounded' >
           {/* <div className='text-end'>
              <img src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" 
@@ -36,7 +26,7 @@ export default function MainProfileComponent() {
           </div> */}
           <div className='d-flex justify-content-between align-items-end'>
             <Image 
-              src={userList.image}
+              src={user.image}
               roundedCircle 
               width={130} 
               height={130} 
@@ -48,16 +38,16 @@ export default function MainProfileComponent() {
             <Row className='my-2 mt-3 rowProfile'>
               <Col xs={8} className="lh-1">
                 <div className="d-flex align-items-baseline">
-                  <p className='mb-1 fw-bold fs-5'>{userList.name} {userList.surname}</p>
+                  <p className='mb-1 fw-bold fs-5'>{user.name} {user.surname}</p>
                   <Button variant="outline-primary" className="btnCheck d-flex align-items-center justify-content-center mx-3 px-1 py-0 pe-2">
                     <i className="bi bi-shield-check mx-1 fw-bold boldIcon"></i>
                     <p className='m-0 fw-semibold'>Inizia la verifica</p>
                   </Button>
                 </div>
 
-                <p className='userBio'>{userList.bio}</p>
+                <p className='userBio'>{user.bio}</p>
                 <div className='d-flex'>
-                  <p className='text-muted'>{userList.area} &middot;</p>
+                  <p className='text-muted'>{user.area} &middot;</p>
                   <a href='#' className='text-primary text-decoration-none mx-2 fw-bold'> Informazioni di contatto</a>
                 </div>
                 <a href='#' className='text-primary text-decoration-none fw-bold'>35 collegamenti</a>
@@ -69,7 +59,7 @@ export default function MainProfileComponent() {
                     roundedCircle
                     width={50} height={50}
                   />
-                  <p className='lh-1 ms-2 mb-0 fw-semibold'>{userList.title}</p>
+                  <p className='lh-1 ms-2 mb-0 fw-semibold'>{user.title}</p>
                 </div>
               </Col>
             </Row>
@@ -137,5 +127,5 @@ export default function MainProfileComponent() {
           </Carousel>
         </div>
     )
-  // )
+   )
 }

@@ -45,12 +45,12 @@ export default function NavbarComponent() {
                  </div>
                  <span className='text-center d-none d-md-block'> Notifiche</span> </Nav.Link>
                  <Nav.Link href="#pricing" className='mx-3'>  <div className='d-flex justify-content-center '>
-                   <i class="bi bi-person-circle"></i>
+                   <i className="bi bi-person-circle"></i>
                  </div> 
                  <span className='text-center d-none d-md-block'>tu</span></Nav.Link>
        <div className='nav-right d-flex align-items-center justify-content-center'>
         <Nav.Link href="#home" className=' mx-3'><div className='d-flex justify-content-center '>
-        <i class=" bi bi-list"></i>
+        <i className=" bi bi-list"></i>
                   </div>
                   <span className=' text-center d-none d-md-block'>Aziende</span></Nav.Link>
         <Nav.Link href="#features" className='mx-3 '><div className='d-flex justify-content-center '>

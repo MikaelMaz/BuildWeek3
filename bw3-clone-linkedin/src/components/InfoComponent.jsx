@@ -7,7 +7,7 @@ export default function InfoComponent() {
         {/* Consigliato per te */}
         <Container className='border-1 border-secondary border rounded-2 p-4 my-2'>
           <p className=' fw-bold fs-5'>Cosigliato per te</p>
-          <p className='font-small'><i class="bi bi-eye-fill"></i> Solo per te</p>
+          <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
           <Row className='border-1 border-secondary border rounded-2 p-2 mt-3'>
             <Col xs={2}>
 
@@ -30,10 +30,10 @@ export default function InfoComponent() {
         <Container className='border-1 border-secondary border rounded-2 pb-1'>
           <div className='p-4'>
             <p className=' fw-bold fs-5'>Analisi</p>
-            <p className='font-small'><i class="bi bi-eye-fill"></i> Solo per te</p>
+            <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
             <Row>
               <Col xs={1}>
-                <i class="bi bi-people-fill"></i>
+                <i className="bi bi-people-fill"></i>
               </Col>
               <Col>
                 <p className='fw-bold'>visualizzazioni del profilo</p>
@@ -50,10 +50,10 @@ export default function InfoComponent() {
         <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
           <div className='p-4'>
             <p className=' fw-bold fs-5'>Risorse</p>
-            <p className='font-small'><i class="bi bi-eye-fill"></i> Solo per te</p>
+            <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
             <Row className='border-secondary border-bottom border-1 py-2'>
               <Col xs={1}>
-              <i class="bi bi-volume-up-fill"></i>
+              <i className="bi bi-volume-up-fill"></i>
               </Col>
               <Col>
                 <p className='fw-bold'>Modalità creazione di contenuti</p>
@@ -65,7 +65,7 @@ export default function InfoComponent() {
             </Row>
             <Row className='pt-2'>
               <Col xs={1}>
-              <i class="bi bi-people-fill"></i>
+              <i className="bi bi-people-fill"></i>
               </Col>
               <Col >
                 <p className='fw-bold'>La mia rete</p>
@@ -85,7 +85,7 @@ export default function InfoComponent() {
           <p>Descrizione</p>
           <Row className='border-1 border-secondary border rounded-2 p-2 mt-3'>
             <Col xs={1}>
-            <i class="bi bi-gem"></i>
+            <i className="bi bi-gem"></i>
             </Col>
             <Col xs={9}>
               <p className='fw-bold pt-2'>Competenze</p>
@@ -93,7 +93,7 @@ export default function InfoComponent() {
               
             </Col>
             <Col xs={1} className='py-2'>
-              <Button variant='' size='sm' className='rounded-5 fw-bold my-2'><i class="bi bi-arrow-right-short"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold my-2'><i className="bi bi-arrow-right-short"></i></Button>
             </Col>
           </Row>
         </Container>
@@ -109,7 +109,7 @@ export default function InfoComponent() {
                 <Button variant='' size='sm' className='rounded-5 fw-bold my-2 border-primary border-1 border text-primary'>Crea un post</Button>
               </Col>
               <Col>
-                <i class="bi bi-pencil"></i>
+                <i className="bi bi-pencil"></i>
               </Col>
             </Row>
               
@@ -127,10 +127,10 @@ export default function InfoComponent() {
               <p className='fw-bold fs-5'>Esperienza</p>
             </Col>
             <Col xs={1}> 
-              <Button variant='' size='sm' className='rounded-5 fw-bold '><i class="bi bi-plus-lg"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold '><i className="bi bi-plus-lg"></i></Button>
             </Col>
             <Col xs={1}>
-              <Button variant='' size='sm' className='rounded-5 fw-bold'><i class="bi bi-pencil"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold'><i className="bi bi-pencil"></i></Button>
             </Col>
           </Row>
         </Container>
@@ -141,10 +141,10 @@ export default function InfoComponent() {
               <p className='fw-bold fs-5'>Formazione</p>
             </Col>
             <Col xs={1}> 
-              <Button variant='' size='sm' className='rounded-5 fw-bold '><i class="bi bi-plus-lg"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold '><i className="bi bi-plus-lg"></i></Button>
             </Col>
             <Col xs={1}>
-              <Button variant='' size='sm' className='rounded-5 fw-bold'><i class="bi bi-pencil"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold'><i className="bi bi-pencil"></i></Button>
             </Col>
           </Row>
         </Container>
@@ -155,10 +155,10 @@ export default function InfoComponent() {
               <p className='fw-bold fs-5'>Competenze</p>
             </Col>
             <Col xs={1}> 
-              <Button variant='' size='sm' className='rounded-5 fw-bold '><i class="bi bi-plus-lg"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold '><i className="bi bi-plus-lg"></i></Button>
             </Col>
             <Col xs={1}>
-              <Button variant='' size='sm' className='rounded-5 fw-bold'><i class="bi bi-pencil"></i></Button>
+              <Button variant='' size='sm' className='rounded-5 fw-bold'><i className="bi bi-pencil"></i></Button>
             </Col>
           </Row>
         </Container>

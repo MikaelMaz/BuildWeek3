@@ -1,9 +1,10 @@
-import { createStore } from 'react-redux'
 import { bigReducers } from '../reducers/reducers'
-import { applyMiddleware } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import { thunk } from 'redux-thunk'
 
 const initialState = {
-    userList: []
+    user: [],
+    experience: []
 }
 
 export const store = createStore(bigReducers, initialState, applyMiddleware(thunk))

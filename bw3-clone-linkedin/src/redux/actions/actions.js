@@ -1,8 +1,8 @@
-import { apiKey, usersListUrl } from '../config/Dati'
+import { apiKey, usersListUrl, experiencesListUrl, userProfileUrl } from '../../config/Dati'
 
 export const addUserProfile = (user) => {
     return (dispatch, getState) => {
-        fetch(usersListUrl, {
+        fetch(userProfileUrl, {
             headers: {
               Authorization: 'Bearer ' + apiKey
             }
@@ -16,4 +16,22 @@ export const addUserProfile = (user) => {
             })
             .catch(err => console.error(err))
     }
+}
+
+export const addExperienceList = (user) => {
+  return (dispatch, getState) => {
+      fetch(experiencesListUrl, {
+          headers: {
+            Authorization: 'Bearer ' + apiKey
+          }
+        })
+          .then(resp => resp.json())
+          .then(json => {
+          //   console.log(json)
+            if(response.ok) {
+              return dispatch({ type: 'ADD_USER', payload: json })
+            }
+          })
+          .catch(err => console.error(err))
+  }
 }

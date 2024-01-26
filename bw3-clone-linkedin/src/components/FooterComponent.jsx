@@ -51,7 +51,7 @@ export default function FooterComponent() {
                   <Col xs={12} md={8} lg={8} xl={8} xxl={8} id='RightPartFooterLeftSide'>
                     <ul>
                       <li className='d-flex align-items-start'>
-                        <div><i class="bi bi-question-circle-fill"></i></div>
+                        <div><i className="bi bi-question-circle-fill"></i></div>
                         <div>
                           <p>Domande?</p>
                           <p>Visita il nostro centro assistenza</p>
