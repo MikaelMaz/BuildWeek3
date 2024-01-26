@@ -19,17 +19,17 @@ export default function MainProfileComponent() {
 
   return (
      user && user.length > 0 && (
-        <div className='border p-3 rounded' >
-          {/* <div className='text-end'>
-             <img src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" 
+        <div className='border p-3 rounded position-relative' >
+          <div className='mainBg text-end position-absolute'>
+             {/* <img src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" 
               alt=""
               className='imgBanner'
-            />
-            <button className='btnIconCamera border '>
+            /> */}
+            <button className='btnIconCamera border position-absolute'>
                <i className="bi bi-camera-fill"></i>
             </button>   
-          </div> */}
-          <div className='d-flex justify-content-between align-items-end'>
+          </div>
+          <div className='d-flex justify-content-between align-items-end mt-3'>
             <Image 
               src={user[0].image}
               roundedCircle 
