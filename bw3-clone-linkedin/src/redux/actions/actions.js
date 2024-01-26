@@ -40,11 +40,26 @@ export const addExperience = (experience, UserID) => {
         Authorization: 'Bearer ' + apiKey,
         'Content-Type': 'application/json' // Aggiunto il tipo di contenuto per assicurare una corretta interpretazione da parte del server
       },
-      body: JSON.stringify(experience)
+      body: JSON.stringify({
+          role: experience.role,
+          company: experience.company,
+          startDate: experience.startDate,
+          endDate: experience.endDate, // could be null
+          description: experience.description,
+          area: experience.area
+          // experience
+      })
+    })
+    .then(response => {
+      console.log('Response status:', response.status);
+      return response.json()
+    })
+    .then(json => {
+      console.log('Response JSON:', json);
+      return dispatch({ type: 'ADD_EXPERIENCE', payload: json })
     })
     .catch(err => console.error(err));
     /*console.log(experience)*/
-    return dispatch({ type: 'ADD_EXPERIENCE', payload: experience })
   };
 };
 
