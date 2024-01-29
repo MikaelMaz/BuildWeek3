@@ -31,17 +31,12 @@ export default function ExperienceComponent() {
   const exper = useSelector(state => state.experience)
   console.log(exper)
 
+  const [experr, setExperr] = useState([]);
 
-//console.log(experience)
-const [experr, setExperr] = useState()
-const deleteBtn = (index) => {
-  setExperr(prevExper => {
-    // Crea una copia di prevExper e rimuovi l'elemento all'indice specificato
-    const updatedExper = [...prevExper[0].slice(0, index), ...prevExper[0].slice(index + 1)];
-
-    return [updatedExper];
-  });
-};
+  const deleteBtn = (index) => {
+    setExperr((experr) => [...experr, index]);
+    dispatch(deleteExperience(user[0]._id, exper[0][index]._id));
+  };
 
 
 
@@ -60,6 +55,7 @@ const deleteBtn = (index) => {
       </Row>
       {exper && exper.length > 0 &&
         exper[0].map((element, index) => (
+          !experr.includes(index) && (
         <div key={index} className="d-flex lh-1 px-2" >
           <div>
             <img src="https://www.ideabit.com/album/foto_full/formato-immagini-webp_710.jpg" width={100} height={80} className="me-3" alt="" />
@@ -78,7 +74,7 @@ const deleteBtn = (index) => {
             </button>
           </div>
         </div>
-      ))}
+      )))}
       <div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
