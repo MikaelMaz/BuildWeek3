@@ -13,12 +13,14 @@ export default function ExperienceComponent() {
     }
   }, [user])
 
+  const [showUpdate, setShowUpdate] = useState(false);
+
   const [show, setShow] = useState(false);
-  const handleClose = () => { setShow(false); console.log(experience) };
+  const handleClose = () => { setShow(false) };
   const handleShow = () => setShow(true);
 
-  const handleCloseUpdate = () => { setShow(false); console.log(experience) };
-  const handleShowUpdate = () => setShow(true);
+  const handleCloseUpdate = () => setShowUpdate(false) ;
+  const handleShowUpdate = () => setShowUpdate(true);
   const [experience, setExperience] = useState({
     company: '',
     role: '',
@@ -78,23 +80,23 @@ export default function ExperienceComponent() {
                   onClick={handleShowUpdate}>
                   <i className="bi bi-pencil"></i>
                 </button>
-                <Modal show={show} onHide={handleCloseUpdate}>
+                <Modal show={showUpdate} onHide={handleCloseUpdate}>
                   <Modal.Header closeButton>
                     <Modal.Title>Modifica la competenza</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <input onChange={(e) => setExperience({ ...experience, company: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua azienda" />
-                    <input onChange={(e) => setExperience({ ...experience, role: e.target.value })} type="text" className="form-control" placeholder="Inserisci il tuo ruolo" />
-                    <input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua data d'inizio" />
-                    <input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua data di fine" />
-                    <input onChange={(e) => setExperience({ ...experience, description: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua descrizione" />
-                    <input onChange={(e) => setExperience({ ...experience, area: e.target.value })} type="text" className="form-control" placeholder="Inserisci il tuo luogo" />
+                    <input onChange={(e) => setExperience({ ...experience, company: e.target.value })} type="text" className="form-control" placeholder={element.company}/>
+                    <input onChange={(e) => setExperience({ ...experience, role: e.target.value })} type="text" className="form-control" placeholder={element.role}/>
+                    <input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder={element.startDate.slice(0, 10)}/>
+                    <input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder={element.endDate.slice(0, 10)}/>
+                    <input onChange={(e) => setExperience({ ...experience, description: e.target.value })} type="text" className="form-control" placeholder={element.description}/>
+                    <input onChange={(e) => setExperience({ ...experience, area: e.target.value })} type="text" className="form-control" placeholder={element.area} />
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseUpdate}>
                       Close
                     </Button>
-                    <Button variant="primary" onClick={() => { handleCloseUpdate(); dispatch(changeExperience(experience, user[0]._id)) }}>
+                    <Button variant="primary" onClick={() => { handleCloseUpdate(); dispatch(changeExperience(experience, user[0]._id, element._id)) }}>
                       Save Changes
                     </Button>
                   </Modal.Footer>

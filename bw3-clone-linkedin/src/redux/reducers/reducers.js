@@ -27,7 +27,8 @@ export const bigReducers = (state = [], action) => {
           }) 
           case 'CHANGE_EXPERIENCE':
             return ({
-
+              ...state,
+              experience: [...state.experience.map(e => e.id === action.payload.id ? action.payload : e)]
             })
       default:
         break;

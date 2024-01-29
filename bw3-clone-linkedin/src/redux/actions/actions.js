@@ -98,7 +98,8 @@ export const changeExperience = (experience, UserID, ExpId) => {
       })
     })
     .then(json => {
-      return dispatch({ type: 'CHANGE_EXPERIENCE', payload: ExpId })
+      //return dispatch({ type: 'CHANGE_EXPERIENCE', payload: experience })
+      console.log(json)
     })
     .catch(err => console.error(err));
   }
