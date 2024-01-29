@@ -8,3 +8,24 @@
     margin: 0 !important;
     background: none !important;
 }
+
+.box-link-welcome>div>p:hover, .box-link-welcome>div>div>p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mainBg 
+{
+    height: 25%;
+    width:100%;
+    margin:-1rem;
+   
+    z-index: -1!important;
+}
+
+.mainBg > div{
+    width:100%;
+    background-image: url("https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
