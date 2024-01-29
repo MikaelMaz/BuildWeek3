@@ -17,16 +17,10 @@ export default function HomeProfileComponent() {
 
     <Container className='border rounded p-3 my-3'>
       <div className='border-bottom'>
-         <div className='mainBg text-end position-absolute'>
-         <Image
-            src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg"
-            
-          >
-          
-          </Image>
-          {/* <div></div> */}
+         <div className='mainBgHome text-end position-absolute'>
+          {/* background con il banner */}
         </div>
-        <div>
+        <div className='d-flex justify-content-center'>
         <Image 
               src={username[0].image}
               roundedCircle 
