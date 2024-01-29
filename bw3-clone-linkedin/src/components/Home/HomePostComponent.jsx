@@ -1,7 +1,13 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Image } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import '../../homePost.css'
+
 
 export default function HomePostComponent() {
+
+  const userimg = useSelector((state) => state.user)
+
   return (
     <>
     <div>HomePostComponent</div>
@@ -12,8 +18,19 @@ export default function HomePostComponent() {
     */}
 
     <Container>
-      <div></div>
-      <div></div>
+      <div>
+        <Image 
+          src={userimg[0].image}
+          roundedCircle 
+          width={50} 
+          height={50} 
+          className = "border border-3 border-dark ms-3">
+        </Image>
+        <button className='btn-post-home px-3'><span>Avvia un post</span></button>
+      </div>
+      <div>
+
+      </div>
     </Container>
     
     {/* POST:
