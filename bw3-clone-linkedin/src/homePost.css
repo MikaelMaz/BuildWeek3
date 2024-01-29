@@ -1,3 +1,40 @@
 .btn-post-home {
-    width: auto;
+    width: 400px !important;
+    cursor: pointer;
+    border-radius: 30px !important;
+}
+
+.btn-post-create, .btn-post-active {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 25px !important;
+}
+
+.btn-post-create button {
+    background: none !important;
+    color: grey !important;
+}
+
+.btn-post-create button:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+.bi-card-image, .bi-calendar3, .bi-file-text {
+    font-weight: 500 !important;
+}
+
+.bi-hand-thumbs-up, .bi-chat-right-text, .bi-arrow-repeat, .bi-send-fill {
+    margin-right: 0.5rem;
+    color: grey;
+}
+
+.btn-post-active {
+    font-size: 1rem;
+}
+
+.info-account {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-top: 1rem;
 }
