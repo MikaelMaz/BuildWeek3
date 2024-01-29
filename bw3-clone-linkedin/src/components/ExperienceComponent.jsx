@@ -96,7 +96,7 @@ export default function ExperienceComponent() {
                     <Button variant="secondary" onClick={handleCloseUpdate}>
                       Close
                     </Button>
-                    <Button variant="primary" onClick={() => { handleCloseUpdate(); dispatch(changeExperience(experience, user[0]._id, element._id)) }}>
+                    <Button variant="primary" onClick={() => { handleCloseUpdate(); dispatch(changeExperience(experience, user[0]._id, element._id)); dispatch(UserExperience(user[0]._id)); }}>
                       Save Changes
                     </Button>
                   </Modal.Footer>

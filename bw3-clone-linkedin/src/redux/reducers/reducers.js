@@ -25,11 +25,11 @@ export const bigReducers = (state = [], action) => {
             ...state,
             experience: [...state.experience.filter(e => e.id !== action.payload)]
           }) 
-          case 'CHANGE_EXPERIENCE':
+          /* case 'CHANGE_EXPERIENCE':
             return ({
               ...state,
               experience: [...state.experience.map(e => e.id === action.payload.id ? action.payload : e)]
-            })
+            }) */
       default:
         break;
     }
