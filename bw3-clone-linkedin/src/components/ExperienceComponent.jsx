@@ -26,8 +26,11 @@ export default function ExperienceComponent() {
     area: ''
   })
 
-console.log(experience)
+  console.log(user[0].role)
 
+
+
+console.log(experience)
 
   return (
     <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
@@ -42,6 +45,21 @@ console.log(experience)
           <Button variant='' size='sm' className='rounded-5 fw-bold'><i className="bi bi-pencil"></i></Button>
         </Col>
       </Row>
+      {user && user.length > 0 &&
+        user.map((element, index ) => (
+        <div key={index} className="d-flex">
+          <div>
+            <img src="https://www.ideabit.com/album/foto_full/formato-immagini-webp_710.jpg" width={100} height={80} alt="" />
+          </div>
+          <div>
+            <p className="fw-bold">{element.role}</p>
+            <p>{element.description}</p>
+            <p className="text-secondary">{element.startDate} - {element.endDate}</p>
+            <p className="text-secondary">{element.area}</p>
+            <p></p>
+          </div>
+        </div>
+      ))}
       <div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
