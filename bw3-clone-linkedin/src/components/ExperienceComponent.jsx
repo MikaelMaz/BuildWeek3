@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
-import { UserExperience, addExperience } from '../redux/actions/actions'
+import { UserExperience, addExperience, deleteExperience } from '../redux/actions/actions'
 
 export default function ExperienceComponent() {
 
@@ -26,11 +26,13 @@ export default function ExperienceComponent() {
     area: ''
   })
 
-  console.log(user[0].role)
+  //console.log(UserExperience())
+
+  const exper = useSelector(state => state.experience)
+  console.log(exper)
 
 
-
-console.log(experience)
+//console.log(experience)
 
   return (
     <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
@@ -45,18 +47,24 @@ console.log(experience)
           <Button variant='' size='sm' className='rounded-5 fw-bold'><i className="bi bi-pencil"></i></Button>
         </Col>
       </Row>
-      {user && user.length > 0 &&
-        user.map((element, index ) => (
-        <div key={index} className="d-flex">
+      {exper && exper.length > 0 &&
+        exper[0].map((element, index) => (
+        <div key={index} className="d-flex lh-1 px-2" >
           <div>
-            <img src="https://www.ideabit.com/album/foto_full/formato-immagini-webp_710.jpg" width={100} height={80} alt="" />
+            <img src="https://www.ideabit.com/album/foto_full/formato-immagini-webp_710.jpg" width={100} height={80} className="me-3" alt="" />
           </div>
           <div>
             <p className="fw-bold">{element.role}</p>
             <p>{element.description}</p>
-            <p className="text-secondary">{element.startDate} - {element.endDate}</p>
+            <p className="text-secondary">{element.startDate.slice(0, 10)} - {element.endDate.slice(0, 10)}</p>
             <p className="text-secondary">{element.area}</p>
             <p></p>
+          </div>
+          <div>
+            <button type="button" 
+              onClick={() => {dispatch(deleteExperience(user[0]._id, element._id))}} 
+              class="btn btn-danger"><i class="bi bi-trash"></i>
+            </button>
           </div>
         </div>
       ))}

@@ -10,7 +10,7 @@ export const addUserProfile = (user) => {
           })
             .then(resp => resp.json())
             .then(json => {
-             console.log(json)
+             //console.log(json)
              return dispatch({ type: 'ADD_USER', payload: json })
             })
             .catch(err => console.error(err)) 
@@ -26,7 +26,7 @@ export const UserExperience = (UserID) => {
       }
     }).then(response => response.json())
     .then(json =>{
-      console.log(json)
+      //console.log(json)
       return dispatch({ type: 'USER_EXPERIENCE', payload: json })
     })
   }
@@ -51,17 +51,33 @@ export const addExperience = (experience, UserID) => {
       })
     })
     .then(response => {
-      console.log('Response status:', response.status);
+      //console.log('Response status:', response.status);
       return response.json()
     })
     .then(json => {
-      console.log('Response JSON:', json);
+      //console.log('Response JSON:', json);
       return dispatch({ type: 'ADD_EXPERIENCE', payload: json })
     })
     .catch(err => console.error(err));
     /*console.log(experience)*/
   };
 };
+
+export const deleteExperience = (UserID, ExpId) => {
+  return(dispatch) => {
+    fetch((experiencesListUrl + UserID + '/experiences/' + ExpId), {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json' // Aggiunto il tipo di contenuto per assicurare una corretta interpretazione da parte del server
+      }
+    })
+    .then(json => {
+      return dispatch({ type: 'DELETE_EXPERIENCE', payload: ExpId })
+    })
+    .catch(err => console.error(err));
+  }
+}
 
 
 
