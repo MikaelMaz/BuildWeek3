@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image } from 'react-bootstrap'
+import { Container, Image, Row, Col, Button } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import '../../homePost.css'
 
@@ -17,7 +17,7 @@ export default function HomePostComponent() {
       - div con elementi da inserire nel post 
     */}
 
-    <Container className='bg-light border rounded p-2'>
+    <Container className='border rounded p-2'>
       <div className='d-flex'>
         <Image 
           src={userimg[0].image}
@@ -26,13 +26,13 @@ export default function HomePostComponent() {
           height={60} 
           className = "border border-3 ms-3">
         </Image>
-        <button className='btn-post-home px-3 py-1 ms-2 text-start text-secondary border-secondary'> Avvia un post </button>
+        <Button variant="outline-secondary" className='btn-post-home px-3 py-1 ms-2 text-start border-secondary'> Avvia un post </Button>
       </div>
 
       <div className='btn-post-create mt-2'>
-        <button className='border-0 py-2 rounded fw-semibold'><i class="bi bi-card-image me-2 text-primary"></i>Contenuti multimediali</button>
-        <button className='border-0 py-2 mx-2 rounded fw-semibold'><i class="bi bi-calendar3 me-2 text-warning"></i>Evento</button>
-        <button className='border-0 py-2 rounded fw-semibold'><i class="bi bi-file-text me-2 text-danger"></i>Scrivi un articolo</button>
+        <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-card-image me-2 text-primary"></i>Contenuti multimediali</button>
+        <button className='border-0 py-2 mx-2 rounded fw-semibold'><i className="bi bi-calendar3 me-2 text-warning"></i>Evento</button>
+        <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-file-text me-2 text-danger"></i>Scrivi un articolo</button>
       </div>
     </Container>
     
@@ -44,42 +44,47 @@ export default function HomePostComponent() {
       - div per commentare, diffondere post, invia etc...
     */}
 
-    <Container className='bg-light mt-3'>
-      <div className=' d-flex justify-content-between '>
-        <div className='d-flex '>
-          <div>
-          {/* img */}
-          img
-          </div>
-          <div className='info-account'>
-            <p className='mb-0'>Lavoropiù spa</p>
+    <Container className='border rounded mt-3'>
+      <Row className=' d-flex justify-content-between '>
+          <Col xs={12} md={2} className='d-flex'>
+            <Image 
+              src={userimg[0].image}
+              roundedCircle 
+              width={60} 
+              height={60} 
+              className = "border border-3 mt-2">
+            </Image>
+          </Col>
+          <Col xs={12} md={7} className='info-account p-0'>
+            <p className='mb-0 fs-6 fw-semibold'>Lavoropiù spa</p>
             <p className='mb-0'>follower</p>
             <p className='mb-1'>durata . <i className="bi bi-globe-americas"></i></p>
-          </div>
-        </div>
-        <div>
-          <i class="bi bi-three-dots"></i>
-          <i class="bi bi-x"></i>
-        </div>
-      </div>
+          </Col>
+          <Col xs={12} md={2} className='btn-close-3dots-post p-0 text-end me-2'>
+            <button><i className="bi bi-three-dots"></i></button>
+            <button><i className="bi bi-x ms-1"></i></button>
+            
+            
+          </Col>
+      </Row>
 
-      <div className='post-content'>
+      <Row className='post-content mt-2'>
         <p>descrizione</p>
         {/* img */}
-        img
-      </div>
+        <p>contenuto multimediale</p>
+      </Row>
 
-      <div className='border-bottom d-flex justify-content-between'>
-        <p>numero mi piace + icone</p>
-        <p>numero diffusioni post</p>
-      </div>
+      <Row className='border-bottom d-flex justify-content-between'>
+        <Col><p>numero mi piace + icone</p></Col>
+        <Col><p>numero diffusioni post</p></Col>
+      </Row>
 
-      <div className='btn-post-active mt-2 p-2 mb-2'>
-        <button className='text-secondary border-0'><i class="bi bi-hand-thumbs-up"></i>Consiglia</button>
-        <button className='text-secondary border-0'><i class="bi bi-chat-right-text"></i>Commenta</button>
-        <button className='text-secondary border-0'><i class="bi bi-arrow-repeat"></i>Diffondi il post</button>
-        <button className='text-secondary border-0'><i class="bi bi-send-fill"></i>Invia</button>
-      </div>
+      <Row className='btn-post-active p-0'>
+        <button className='text-secondary border-0 py-2'><i className="bi bi-hand-thumbs-up"></i>Consiglia</button>
+        <button className='text-secondary border-0'><i className="bi bi-chat-right-text"></i>Commenta</button>
+        <button className='text-secondary border-0'><i className="bi bi-arrow-repeat"></i>Diffondi il post</button>
+        <button className='text-secondary border-0'><i className="bi bi-send-fill"></i>Invia</button>
+      </Row>
     </Container>
     </>
   )

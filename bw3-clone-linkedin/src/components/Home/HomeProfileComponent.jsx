@@ -16,7 +16,7 @@ export default function HomeProfileComponent() {
     <div className='home-profile-global'>
       <div>HomeProfileComponent</div>
 
-    <Container className='border rounded p-3 my-3 home-profile'>
+    <Container className='border rounded p-3 home-profile'>
       <div className='border-bottom'>
          <div className='mainBgHome text-end position-absolute'>
           {/* background con il banner */}
@@ -57,6 +57,8 @@ export default function HomeProfileComponent() {
         <p className='fw-semibold mb-0 ms-2'>I miei elementi</p>
       </div>
     </Container>
+
+{/* prova con la card di bootstrap react */}
 
     {/* <Card style={{ width: '15rem' }}>
       <Card.Img variant="top" className='z-0' src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" />
