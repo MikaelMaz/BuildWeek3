@@ -126,7 +126,21 @@ export const changeExperience = (experience, UserID, ExpId) => {
 
 // IMMAGINI
 
-export const setImgProfile = (image) => {
-  return ({type: 'SET_IMAGE_PROFILE', payload: image})
-      
+export const setImgProfile = (imageUrl) => {
+  return(dispatch) => {
+    fetch((usersListUrl), {
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json' // Aggiunto il tipo di contenuto per assicurare una corretta interpretazione da parte del server
+      },
+      body: JSON.stringify({"image":imageUrl})
+    })
+    .then(json => {
+      console.log(json)
+      return ({type: 'SET_IMAGE_PROFILE', payload: imageUrl})
+    })
+    .catch(err => console.error(err));
+  }
 }
+  

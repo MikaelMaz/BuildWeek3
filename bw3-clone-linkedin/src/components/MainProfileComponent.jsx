@@ -26,11 +26,11 @@ export default function MainProfileComponent() {
   const [image, setImage] = useState(null)
 
   const handleImageChange = (e) => {
+    e.preventDefault();
     const selectedImage = e.target.files[0];
-    setImage(selectedImage);
-    if(image!== null){
-      console.log(image)
-    }
+    //setImage(selectedImage);
+    const localImageUrl = window.URL.createObjectURL(selectedImage);
+    console.log(localImageUrl)
   };
 
   const handleSubmit = (e) => {
@@ -48,10 +48,7 @@ export default function MainProfileComponent() {
      user && user.length > 0 && (
         <div className='border p-3 rounded position-relative' >
           <div className='mainBg text-end position-absolute'>
-             {/* <img src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" 
-              alt=""
-              className='imgBanner'
-            /> */}
+             
             <Button className='btnIconCamera border position-absolute' onClick={handleShow}>
                <i className="bi bi-camera-fill"></i>
             </Button>   
