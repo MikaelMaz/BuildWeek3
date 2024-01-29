@@ -1,15 +1,22 @@
 import './App.css';
-import ProfilePage from './pages/ProfilePage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './Pierpaolo.css';
 import './MainStyle.css';
 import './InfoComponent.css';
 import './Marco.css';
+import Home from './pages/Home';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
-    <div className="App">
-      <ProfilePage/>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/profile' element={<ProfilePage />} />
+      </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 

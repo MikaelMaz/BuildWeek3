@@ -24,7 +24,7 @@ export default function NavbarComponent() {
           aria-label="Search"
         />
       </Form>
-       <Nav.Link href="#home" className='mx-3'><div className='d-flex justify-content-center '>
+       <Nav.Link to={'/'} className='mx-3'><div className='d-flex justify-content-center '>
                    <i className="bi bi-house-fill"></i>
                  </div>
                  <span className='text-center d-none d-md-block'> Home</span></Nav.Link>
