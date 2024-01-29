@@ -25,7 +25,7 @@ export default function HomeProfileComponent() {
       <div className='border-bottom d-flex justify-content-between my-3'>
         <div>
           <p className='text-secondary mb-0'>Collegamenti</p>
-          <p>Espandi la tua rete</p>
+          <p className='fw-semibold'>Espandi la tua rete</p>
         </div>
         <div>
           <p className='text-primary fw-semibold'>24</p>
@@ -34,7 +34,7 @@ export default function HomeProfileComponent() {
 
       <div className='border-bottom '>
         <p className='text-secondary mb-0 lh-1'>Accedi a strumenti e informazioni in esclusiva</p>
-        {/* svg che non trovo */} <p className='fw-semibold'>Prova Premium per 0 EUR</p>
+         <p className='fw-semibold'> <i class="bi bi-square-fill text-warning"></i> Prova Premium per 0 EUR</p>
       </div>
 
       <div className='d-flex align-items-center align-content-center mt-2'>
@@ -54,7 +54,7 @@ export default function HomeProfileComponent() {
         <p className='fw-semibold text-primary '>Hashtag seguiti</p>
       </div>
       <div>
-        <p className='fs-6 text-secondary text-center my-2 fw-semibold'>Scopri di più</p>
+        <p className='fs-6 text-secondary text-center my-2 py-1 fw-semibold'>Scopri di più</p>
       </div>
     </Container>
     </div>

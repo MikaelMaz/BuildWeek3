@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 
 export default function HomePostComponent() {
   return (
@@ -9,6 +10,11 @@ export default function HomePostComponent() {
       - div con immagine acc e input
       - div con elementi da inserire nel post 
     */}
+
+    <Container>
+      <div></div>
+      <div></div>
+    </Container>
     
     {/* POST:
       - div con info account
