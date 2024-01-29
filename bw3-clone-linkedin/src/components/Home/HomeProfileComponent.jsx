@@ -3,6 +3,7 @@ import { Container,Image } from 'react-bootstrap'
 import '../../homeProfile.css'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Button, Card, ListGroup } from 'react-bootstrap'
 
 export default function HomeProfileComponent() {
 
@@ -15,7 +16,7 @@ export default function HomeProfileComponent() {
     <div className='home-profile-global'>
       <div>HomeProfileComponent</div>
 
-    <Container className='border rounded p-3 my-3'>
+    <Container className='border rounded p-3 my-3 home-profile'>
       <div className='border-bottom'>
          <div className='mainBgHome text-end position-absolute'>
           {/* background con il banner */}
@@ -24,9 +25,9 @@ export default function HomeProfileComponent() {
         <Image 
               src={username[0].image}
               roundedCircle 
-              width={80} 
-              height={80} 
-              className = "border border-3 border-dark ms-3d-block">
+              width={70} 
+              height={70} 
+              className = "border border-3 border ms-3d-block mb-2 z-1">
             </Image>
         </div>
         <div className='text-center mb-2'>
@@ -56,6 +57,44 @@ export default function HomeProfileComponent() {
         <p className='fw-semibold mb-0 ms-2'>I miei elementi</p>
       </div>
     </Container>
+
+    {/* <Card style={{ width: '15rem' }}>
+      <Card.Img variant="top" className='z-0' src="https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg" />
+      <Card.Body>
+        <div className='d-flex justify-content-center'>
+          <Image 
+                src={username[0].image}
+                roundedCircle 
+                width={80} 
+                height={80} 
+                className = "border border-3 border-dark ms-3d-block img-profile-home z-1">
+          </Image>
+        </div>
+        <Card.Title>Ti diamo il benvenuto</Card.Title>
+        <Card.Text>
+          Aggiungi una foto 
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item className='border-bottom d-flex justify-content-between my-3'>
+        <div>
+          <p className='text-secondary mb-0'>Collegamenti</p>
+          <p className='fw-semibold'>Espandi la tua rete</p>
+        </div>
+        <div>
+          <p className='text-primary fw-semibold'>24</p>
+        </div>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <p className='text-secondary mb-0 lh-1'>Accedi a strumenti e informazioni in esclusiva</p>
+          <p className='fw-semibold d-flex align-items-center'> <i className="bi bi-square-fill text-warning me-2"></i> Prova Premium per 0 EUR</p>
+        </ListGroup.Item>
+        <ListGroup.Item className='d-flex align-items-center align-content-center mt-2'>
+          <i className="bi bi-bookmark-fill fs-6"></i>
+          <p className='fw-semibold mb-0 ms-2'>I miei elementi</p>
+        </ListGroup.Item>
+      </ListGroup>
+    </Card> */}
       
 
     <Container className='border rounded pt-3 my-3 box-link-welcome'>

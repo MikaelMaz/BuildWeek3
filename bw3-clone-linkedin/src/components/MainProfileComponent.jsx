@@ -50,7 +50,7 @@ export default function MainProfileComponent() {
           <div className='mainBg text-end position-absolute'>
              
             <Button className='btnIconCamera border position-absolute' onClick={handleShow}>
-               <i className="bi bi-camera-fill"></i>
+               <i className="bi bi-camera-fill text-primary"></i>
             </Button>   
           <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
