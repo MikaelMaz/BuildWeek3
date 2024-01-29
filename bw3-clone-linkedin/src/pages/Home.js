@@ -15,10 +15,10 @@ export default function Home() {
           <Col xs={12} md={3}>
             <HomeProfileComponent />
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={5}>
             <HomePostComponent />
           </Col>
-          <Col xs={12} md={3}>
+          <Col xs={12} md={4}>
             <HomeNewsComponent />
           </Col>
         </Row>

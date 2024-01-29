@@ -1,0 +1,10 @@
+.home-profile-global p, a, .box-link-welcome p{
+    font-size: 0.8rem;
+}
+
+.btn-plus-welcome {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+}

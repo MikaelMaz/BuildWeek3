@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row, Col, Form, Nav, Navbar} from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 
 export default function NavbarComponent() {
   return (
@@ -24,10 +24,10 @@ export default function NavbarComponent() {
           aria-label="Search"
         />
       </Form>
-       <Nav.Link to={'/'} className='mx-3'><div className='d-flex justify-content-center '>
+       <Link to={'/'} href='/' className='mx-3 nav-link'><div className='d-flex justify-content-center '>
                    <i className="bi bi-house-fill"></i>
                  </div>
-                 <span className='text-center d-none d-md-block'> Home</span></Nav.Link>
+                 <span className='text-center d-none d-md-block'> Home</span></Link>
        <Nav.Link href="#features" className='mx-3'><div className='d-flex justify-content-center '>
                    <i className="bi bi-people-fill"></i>
                  </div>
@@ -44,10 +44,10 @@ export default function NavbarComponent() {
                    <i className="bi bi-bell-fill"></i>
                  </div>
                  <span className='text-center d-none d-md-block'> Notifiche</span> </Nav.Link>
-                 <Nav.Link href="#pricing" className='mx-3'>  <div className='d-flex justify-content-center '>
+      <Link to={'/profile'}className='mx-3 nav-link'>  <div className='d-flex justify-content-center '>
                    <i className="bi bi-person-circle"></i>
                  </div> 
-                 <span className='text-center d-none d-md-block'>tu</span></Nav.Link>
+                 <span className='text-center d-none d-md-block'>tu</span></Link>
        <div className='nav-right d-flex align-items-center justify-content-center'>
         <Nav.Link href="#home" className=' mx-3'><div className='d-flex justify-content-center '>
         <i className=" bi bi-list"></i>
