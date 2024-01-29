@@ -30,6 +30,11 @@ export const bigReducers = (state = [], action) => {
               ...state,
               experience: [...state.experience.map(e => e.id === action.payload.id ? action.payload : e)]
             }) */
+        case 'SET_IMG_PROFILE':
+          return ({
+            ...state,
+            imageProfile: [action.payload]
+          })
       default:
         break;
     }

@@ -122,3 +122,11 @@ export const changeExperience = (experience, UserID, ExpId) => {
           .catch(err => console.error(err))
   }
 } */
+
+
+// IMMAGINI
+
+export const setImgProfile = (image) => {
+  return ({type: 'SET_IMAGE_PROFILE', payload: image})
+      
+}

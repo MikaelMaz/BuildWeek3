@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Image, Row, Col, Button, Dropdown} from 'react-bootstrap'
+import { Image, Row, Col, Button, Dropdown, Modal, Form} from 'react-bootstrap'
 import Carousel from 'react-bootstrap/Carousel'
 import '../MainStyle.css'
 import { apiKey, userProfileUrl } from '../config/Dati'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUserProfile, UserExperience } from '../redux/actions/actions'
+import { addUserProfile, setImgProfile, UserExperience } from '../redux/actions/actions'
 import InfoComponent from './InfoComponent'
 
 export default function MainProfileComponent() {
@@ -17,6 +17,33 @@ export default function MainProfileComponent() {
   const user = useSelector(state => state.user)
   console.log(user)
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  const [image, setImage] = useState(null)
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setImage(selectedImage);
+    if(image!== null){
+      console.log(image)
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const formData = new FormData();
+    formData.append('profileImage', image);
+  
+  };
+
+  const imageProfile = useSelector(state => state.imageProfile)
+  console.log(imageProfile)
+
   return (
      user && user.length > 0 && (
         <div className='border p-3 rounded position-relative' >
@@ -25,17 +52,34 @@ export default function MainProfileComponent() {
               alt=""
               className='imgBanner'
             /> */}
-            <button className='btnIconCamera border position-absolute'>
+            <Button className='btnIconCamera border position-absolute' onClick={handleShow}>
                <i className="bi bi-camera-fill"></i>
-            </button>   
+            </Button>   
+          <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+                    <Modal.Title>Scegli immagine del profilo</Modal.Title>
+                  </Modal.Header>
+            <Modal.Body>
+
+              <Form.Group onChange={handleImageChange} controlId="formFile" className="mb-3">
+                <Form.Control type="file" />
+              </Form.Group>
+
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>Close</Button>
+              <Button variant="primary" onClick={ ()=>{handleClose(); dispatch(setImgProfile(image))}}>Save changes</Button>
+            </Modal.Footer>
+          </Modal>
           </div>
+
           <div className='d-flex justify-content-between align-items-end mt-3'>
             <Image 
               src={user[0].image}
               roundedCircle 
               width={130} 
               height={130} 
-              className = "border border-3 border-dark ms-3">
+              className = "border border-3 border-dark ms-3 z-1">
             </Image>
             <i className="bi bi-pencil"></i>
           </div>
