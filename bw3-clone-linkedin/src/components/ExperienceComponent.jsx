@@ -45,7 +45,7 @@ export default function ExperienceComponent() {
 
 
   return (
-    <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
+    <Container className='border-1 border rounded-2 pb-1 my-2'>
       <Row>
         <Col xs={9}>
           <p className='fw-bold fs-5'>Esperienza</p>
