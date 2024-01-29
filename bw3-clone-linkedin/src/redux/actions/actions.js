@@ -79,7 +79,30 @@ export const deleteExperience = (UserID, ExpId) => {
   }
 }
 
-
+export const changeExperience = (experience, UserID, ExpId) => {
+  return(dispatch) => {
+    fetch((experiencesListUrl + UserID + '/experiences/' + ExpId), {
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json' // Aggiunto il tipo di contenuto per assicurare una corretta interpretazione da parte del server
+      },
+      body: JSON.stringify({
+          "role": experience.role,
+          "company": experience.company,
+          "startDate": experience.startDate,
+          "endDate": experience.endDate, // could be null
+          "description": experience.description,
+          "area": experience.area
+          // experience
+      })
+    })
+    .then(json => {
+      return dispatch({ type: 'CHANGE_EXPERIENCE', payload: ExpId })
+    })
+    .catch(err => console.error(err));
+  }
+}
 
 /* export const addExperienceList = (user) => {
   return (dispatch, getState) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
-import { UserExperience, addExperience, deleteExperience } from '../redux/actions/actions'
+import { UserExperience, addExperience, deleteExperience, changeExperience } from '../redux/actions/actions'
 
 export default function ExperienceComponent() {
 
@@ -14,9 +14,11 @@ export default function ExperienceComponent() {
   }, [user])
 
   const [show, setShow] = useState(false);
-  const handleClose = () => {setShow(false); console.log(experience)};
+  const handleClose = () => { setShow(false); console.log(experience) };
   const handleShow = () => setShow(true);
 
+  const handleCloseUpdate = () => { setShow(false); console.log(experience) };
+  const handleShowUpdate = () => setShow(true);
   const [experience, setExperience] = useState({
     company: '',
     role: '',
@@ -56,47 +58,72 @@ export default function ExperienceComponent() {
       {exper && exper.length > 0 &&
         exper[0].map((element, index) => (
           !experr.includes(index) && (
-        <div key={index} className="d-flex lh-1 px-2" >
-          <div>
-            <img src="https://www.ideabit.com/album/foto_full/formato-immagini-webp_710.jpg" width={100} height={80} className="me-3" alt="" />
-          </div>
-          <div>
-            <p className="fw-bold">{element.role}</p>
-            <p>{element.description}</p>
-            <p className="text-secondary">{element.startDate.slice(0, 10)} - {element.endDate.slice(0, 10)}</p>
-            <p className="text-secondary">{element.area}</p>
-            <p></p>
-          </div>
-          <div>
-            <button type="button" 
-              onClick={() => { dispatch(deleteExperience(user[0]._id, element._id)); deleteBtn(index);}}
-              class="btn btn-danger"><i class="bi bi-trash"></i>
-            </button>
-          </div>
-        </div>
-      )))}
+            <div key={index} className="d-flex lh-1 px-2" >
+              <div>
+                <img src="https://www.ideabit.com/album/foto_full/formato-immagini-webp_710.jpg" width={100} height={80} className="me-3" alt="" />
+              </div>
+              <div>
+                <p className="fw-bold">{element.role}</p>
+                <p>{element.description}</p>
+                <p className="text-secondary">{element.startDate.slice(0, 10)} - {element.endDate.slice(0, 10)}</p>
+                <p className="text-secondary">{element.area}</p>
+                <p></p>
+              </div>
+              <div>
+                <button type="button"
+                  onClick={() => { dispatch(deleteExperience(user[0]._id, element._id)); deleteBtn(index); }}
+                  class="btn btn-danger mx-3"><i class="bi bi-trash"></i>
+                </button>
+                <button type="button" className="btn btn-success"
+                  onClick={handleShowUpdate}>
+                  <i className="bi bi-pencil"></i>
+                </button>
+                <Modal show={show} onHide={handleCloseUpdate}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modifica la competenza</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <input onChange={(e) => setExperience({ ...experience, company: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua azienda" />
+                    <input onChange={(e) => setExperience({ ...experience, role: e.target.value })} type="text" className="form-control" placeholder="Inserisci il tuo ruolo" />
+                    <input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua data d'inizio" />
+                    <input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua data di fine" />
+                    <input onChange={(e) => setExperience({ ...experience, description: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua descrizione" />
+                    <input onChange={(e) => setExperience({ ...experience, area: e.target.value })} type="text" className="form-control" placeholder="Inserisci il tuo luogo" />
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseUpdate}>
+                      Close
+                    </Button>
+                    <Button variant="primary" onClick={() => { handleCloseUpdate(); dispatch(changeExperience(experience, user[0]._id)) }}>
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </div>
+            </div>
+          )))}
       <div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Inserisci una nuova competenza</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <input onChange={(e) => setExperience({...experience, company: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua azienda" />
-          <input onChange={(e) => setExperience({...experience, role: e.target.value})} type="text" className="form-control" placeholder="Inserisci il tuo ruolo" />
-          <input onChange={(e) => setExperience({...experience, startDate: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua data d'inizio" />
-          <input onChange={(e) => setExperience({...experience, endDate: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua data di fine" />
-          <input onChange={(e) => setExperience({...experience, description: e.target.value})} type="text" className="form-control" placeholder="Inserisci la tua descrizione" />
-          <input onChange={(e) => setExperience({...experience, area: e.target.value})} type="text" className="form-control" placeholder="Inserisci il tuo luogo" />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={() => {handleClose(); dispatch(addExperience(experience, user[0]._id))}}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Inserisci una nuova competenza</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input onChange={(e) => setExperience({ ...experience, company: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua azienda" />
+            <input onChange={(e) => setExperience({ ...experience, role: e.target.value })} type="text" className="form-control" placeholder="Inserisci il tuo ruolo" />
+            <input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua data d'inizio" />
+            <input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua data di fine" />
+            <input onChange={(e) => setExperience({ ...experience, description: e.target.value })} type="text" className="form-control" placeholder="Inserisci la tua descrizione" />
+            <input onChange={(e) => setExperience({ ...experience, area: e.target.value })} type="text" className="form-control" placeholder="Inserisci il tuo luogo" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={() => { handleClose(); dispatch(addExperience(experience, user[0]._id)) }}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </Container>
   )
