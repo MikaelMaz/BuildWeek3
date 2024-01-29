@@ -69,7 +69,7 @@ export default function ExperienceComponent() {
           </div>
           <div>
             <button type="button" 
-              onClick={() => {/*dispatch(deleteExperience(user[0]._id, element._id))*/  deleteBtn(index)}}
+              onClick={() => { dispatch(deleteExperience(user[0]._id, element._id)); deleteBtn(index);}}
               class="btn btn-danger"><i class="bi bi-trash"></i>
             </button>
           </div>
