@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Image, Row, Col, Button } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import '../../homePost.css'
 
 
 export default function HomePostComponent() {
 
   const userimg = useSelector((state) => state.user)
+
+  const dispatch = useDispatch()
+
+
+  useEffect (() => {
+    dispatch
+  })
+
+  const postList = useSelector((state) => state.homepage)
+  console.log(postList)
 
   return (
     <>

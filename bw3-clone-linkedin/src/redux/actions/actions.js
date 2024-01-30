@@ -1,4 +1,4 @@
-import { apiKey, usersListUrl, experiencesListUrl, userProfileUrl } from '../../config/Dati'
+import { apiKey, usersListUrl, experiencesListUrl, userProfileUrl, postListUrl } from '../../config/Dati'
 /*import axios from 'axios'*/
 
 export const addUserProfile = (user) => {
@@ -127,5 +127,21 @@ export const changeExperience = (experience, UserID, ExpId) => {
 
 export const setImgProfile = (imageData) => {
   return ({ type: 'SET_IMG_PROFILE', payload: imageData })
+}
+
+
+export const getPostList = () => {
+  return (dispatch) => {
+    fetch(postListUrl, {
+      headers: {
+        Authorization: 'Bearer ' + apiKey
+      }
+    })
+      .then(resp => resp.json())
+      .then(json => {
+        return dispatch({ type: 'GET_POST_LIST', payload: json })
+      })
+      .catch(err => console.error(err))
+  }
 }
 
