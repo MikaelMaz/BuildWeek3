@@ -1,16 +1,62 @@
-import React from 'react'
-import { Container,Image } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container,Image, Modal, Form } from 'react-bootstrap'
 import '../../homeProfile.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Card, ListGroup } from 'react-bootstrap'
+import { setImgProfile } from '../../redux/actions/actions'
 
 export default function HomeProfileComponent() {
+  const dispatch = useDispatch()
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [imageData, setImageData] = useState(null);
+  const [file, setFile] = useState(null);
 
   const username = useSelector(state=>state.profile.user)
   const imgProfile = useSelector(state=>state.profile.imageProfile)
   
   console.log(username)
+
+  const handleImageChange = (e) => {
+    //
+
+    const selectedFile = e.target.files[0];
+
+    if (selectedFile) {
+      setFile(selectedFile);
+
+      // Creazione di un oggetto FormData
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+
+      // Puoi inviare formData al server se necessario
+      // Ad esempio, inviare formData tramite una richiesta fetch
+    }
+  };
+
+  const handleUpload = () => {
+    // Qui puoi aggiornare lo stato con i dati dell'immagine se necessario
+    // Per esempio, potresti fare qualcosa come setImageData(formData.get('image'))
+
+    // In questo esempio, l'immagine viene convertita in URL di dati base64 e memorizzata nello stato
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => { 
+        setImageData(reader.result);
+        console.log(imageData)
+        dispatch(setImgProfile(reader.result))
+        /* setTimeout(() => {
+          dispatch(setImgProfile(reader.result))
+        },1000) */
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     username &&
@@ -29,11 +75,27 @@ export default function HomeProfileComponent() {
               height={70} 
               className = "border border-3 border ms-3d-block mb-2 z-1">
           </Image>
+          <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+                    <Modal.Title>Scegli immagine del profilo</Modal.Title>
+                  </Modal.Header>
+            <Modal.Body>
+
+              <Form.Group onChange={handleImageChange} controlId="formFile" className="mb-3">
+                <Form.Control type="file" accept="image/*" onChange={handleImageChange} />
+              </Form.Group>
+
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={ ()=>{handleClose();}}>Close</Button>
+              <Button variant="primary" onClick={ ()=>{handleUpload();}}>Save changes</Button>
+            </Modal.Footer>
+          </Modal>
         </div>
         <div className='text-center mb-2'>
           <h6 className='fw-semibold mb-0'>Ti diamo il benvenuto </h6>
           <Link to={'/profile'} className='fw-semibold mb-0 d-block text-decoration-none text-black fs-6'>{username[0].name} !</Link>  {/* al click fa alla pagina profilo */}
-          <a id='link-add-photo-home' className='text-primary text-decoration-none '>Aggiungi una foto</a>
+          <a id='link-add-photo-home' className='text-primary text-decoration-none ' onClick={handleShow}>Aggiungi una foto</a>
         </div>
       </div>
       <Container className='pb-2'>

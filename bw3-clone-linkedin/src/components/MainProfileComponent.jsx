@@ -53,9 +53,7 @@ export default function MainProfileComponent() {
       // Ad esempio, inviare formData tramite una richiesta fetch
     }
   };
-setTimeout(() => {
-  
-})
+
   const handleUpload = () => {
     // Qui puoi aggiornare lo stato con i dati dell'immagine se necessario
     // Per esempio, potresti fare qualcosa come setImageData(formData.get('image'))
