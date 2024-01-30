@@ -126,9 +126,10 @@ export const changeExperience = (experience, UserID, ExpId) => {
 // IMMAGINI
 
 export const setImgProfile = (imageData) => {
-  return ({ type: 'SET_IMAGE_PROFILE', payload: imageData })
+  return ({ type: 'SET_IMG_PROFILE', payload: imageData })
 }
 
 export const setImgProfile2 = (imageUrl) => {
-  return ({ type: 'SET_IMAGE_PROFILE', payload: imageUrl })
+  /* console.log("Ciao") */
+  return ({ type: 'SET_IMG_PROFILE2', payload: imageUrl })
 }

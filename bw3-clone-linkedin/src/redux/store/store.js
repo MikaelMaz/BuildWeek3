@@ -6,7 +6,7 @@ import { bigReducers } from '../reducers/reducers';
 
 const initialState = {
     user: [],
-    imageProfile: "",
+    imageProfile: [],
     experience: []
 };
 

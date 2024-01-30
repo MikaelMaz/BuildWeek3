@@ -6,7 +6,6 @@ import { apiKey, userProfileUrl } from '../config/Dati'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUserProfile, setImgProfile, UserExperience, setImgProfile2 } from '../redux/actions/actions'
 import InfoComponent from './InfoComponent'
-import DummyComponent from './DummyComponent'
 export default function MainProfileComponent() {
   const dispatch = useDispatch()
 
@@ -22,28 +21,65 @@ export default function MainProfileComponent() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [imageData, setImageData] = useState(null);
+  const [file, setFile] = useState(null);
 
-  const [image, setImage] = useState(null)
+  const ProfilePic = useSelector(state => state.imageProfile[0])
+  /* const [image, setImage] = useState(null) */
+
+  /* let localImageUrl
 
   const handleImageChange = (e) => {
     e.preventDefault();
     const selectedImage = e.target.files[0];
     setImage(selectedImage);
-    const localImageUrl = window.URL.createObjectURL(selectedImage);
+    localImageUrl = window.URL.createObjectURL(selectedImage);
     console.log(localImageUrl)
+  }; */
+
+  const handleImageChange = (e) => {
+    //
+
+    const selectedFile = e.target.files[0];
+
+    if (selectedFile) {
+      setFile(selectedFile);
+
+      // Creazione di un oggetto FormData
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+
+      // Puoi inviare formData al server se necessario
+      // Ad esempio, inviare formData tramite una richiesta fetch
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleUpload = () => {
+    // Qui puoi aggiornare lo stato con i dati dell'immagine se necessario
+    // Per esempio, potresti fare qualcosa come setImageData(formData.get('image'))
+
+    // In questo esempio, l'immagine viene convertita in URL di dati base64 e memorizzata nello stato
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageData(reader.result);
+        console.log(imageData)
+      };
+      reader.readAsDataURL(file);
+      
+    }
+  };
+  /* const handleSubmit = (e) => {
     e.preventDefault();
   
     const formData = new FormData();
     formData.append('profileImage', image);
   
-  };
+  }; */
 
-  const imageProfile = useSelector(state => state.imageProfile)
+  /* const imageProfile = useSelector(state => state.imageProfile)
   console.log(imageProfile)
-
+ */
   return (
      user && user.length > 0 && (
         <div className='border p-3 rounded position-relative' >
@@ -59,25 +95,30 @@ export default function MainProfileComponent() {
             <Modal.Body>
 
               <Form.Group onChange={handleImageChange} controlId="formFile" className="mb-3">
-                <Form.Control type="file" />
+                <Form.Control type="file" accept="image/*" onChange={handleImageChange} />
               </Form.Group>
 
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>Close</Button>
-              <Button variant="primary" onClick={ ()=>{handleClose(); dispatch(setImgProfile2())}}>Save changes</Button>
+              <Button variant="primary" onClick={ ()=>{handleUpload(); dispatch(setImgProfile(imageData)) }}>Save changes</Button>
             </Modal.Footer>
           </Modal>
           </div>
 
           <div className='d-flex justify-content-between align-items-end mt-3'>
-            <Image 
-              src={user[0].image}
+            {
+              ProfilePic && (
+                <Image 
+              src={ProfilePic}
               roundedCircle 
               width={130} 
               height={130} 
               className = "border border-3 border-dark ms-3 z-1">
             </Image>
+              )
+            }
+            
             <i className="bi bi-pencil"></i>
           </div>
           <div>
@@ -171,7 +212,6 @@ export default function MainProfileComponent() {
               </div>
             </Carousel.Item>
           </Carousel>
-          <DummyComponent />
         </div>
     )
    )

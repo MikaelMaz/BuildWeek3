@@ -7,7 +7,7 @@ const ImageUploader = () => {
   const [imageData, setImageData] = useState(null);
   const [file, setFile] = useState(null);
 
-  const ProfilePic = useSelector(state => state.imageProfile)
+  const ProfilePic = useSelector(state => state.imageProfile[0])
   useEffect(()=>{
       console.log(ProfilePic)
   },[ProfilePic])
@@ -48,7 +48,7 @@ const ImageUploader = () => {
     <div>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={ ()=>{handleUpload(); dispatch(setImgProfile(imageData)) }}>Carica Immagine</button>
-      {imageData && <img src={imageData} alt="Uploaded" />}
+      {ProfilePic && <img src={ProfilePic} alt="Uploaded" />}
     </div>
   );
 };
