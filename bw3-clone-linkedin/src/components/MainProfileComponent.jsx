@@ -4,9 +4,9 @@ import Carousel from 'react-bootstrap/Carousel'
 import '../MainStyle.css'
 import { apiKey, userProfileUrl } from '../config/Dati'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUserProfile, setImgProfile, UserExperience } from '../redux/actions/actions'
+import { addUserProfile, setImgProfile, UserExperience, setImgProfile2 } from '../redux/actions/actions'
 import InfoComponent from './InfoComponent'
-
+import DummyComponent from './DummyComponent'
 export default function MainProfileComponent() {
   const dispatch = useDispatch()
 
@@ -28,7 +28,7 @@ export default function MainProfileComponent() {
   const handleImageChange = (e) => {
     e.preventDefault();
     const selectedImage = e.target.files[0];
-    //setImage(selectedImage);
+    setImage(selectedImage);
     const localImageUrl = window.URL.createObjectURL(selectedImage);
     console.log(localImageUrl)
   };
@@ -65,7 +65,7 @@ export default function MainProfileComponent() {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>Close</Button>
-              <Button variant="primary" onClick={ ()=>{handleClose(); dispatch(setImgProfile(image))}}>Save changes</Button>
+              <Button variant="primary" onClick={ ()=>{handleClose(); dispatch(setImgProfile2())}}>Save changes</Button>
             </Modal.Footer>
           </Modal>
           </div>
@@ -171,6 +171,7 @@ export default function MainProfileComponent() {
               </div>
             </Carousel.Item>
           </Carousel>
+          <DummyComponent />
         </div>
     )
    )

@@ -35,6 +35,11 @@ export const bigReducers = (state = [], action) => {
             ...state,
             imageProfile: [action.payload]
           })
+          case 'SET_IMG_PROFILE2':
+            return ({
+              ...state,
+              imageProfile: [action.payload]
+            })
       default:
         break;
     }
