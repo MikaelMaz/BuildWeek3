@@ -20,7 +20,7 @@ export default function homepageReducer(state={}, action) {
         case 'CREATE_POST':
           return {
             ...state, 
-            post:[...state.post, action.payload]}
+            post:[action.payload]}
       default:
         break;
   }

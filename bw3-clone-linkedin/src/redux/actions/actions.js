@@ -146,7 +146,7 @@ export const getPostList = () => {
   }
 }
 
-export const createPost = () => {
+export const createPost = (postSave) => {
   return (dispatch) => {
     fetch(postListUrl, {
       method: 'POST',
@@ -154,7 +154,7 @@ export const createPost = () => {
         Authorization: 'Bearer ' + apiKey
       },
       body: JSON.stringify({
-        
+        'text': postSave.text
       })
     })
     .then(resp => resp.json())

@@ -15,9 +15,8 @@ export default function HomePostComponent() {
   const postList = useSelector(state => state.home.homepage[0])
   console.log(postList)
 
-  const [postSave, setPostSave] = useState({});
+  const [postSave, setPostSave] = useState({text:''});
   console.log(postSave)
-
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -90,7 +89,7 @@ export default function HomePostComponent() {
             as="textarea" 
             rows={3}
             placeholder='Di cosa vorresti parlare?'
-            onChange={e => setPostSave({ description: e.target.value })}
+            onChange={e => setPostSave({...postSave, text: e.target.value })}
             >
             </Form.Control>
           </Form>
