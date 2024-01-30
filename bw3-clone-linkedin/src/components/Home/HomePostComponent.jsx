@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Image, Row, Col, Button, Modal, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import '../../homePost.css'
-import { getPostList } from '../../redux/actions/actions'
+import { getPostList, createPost } from '../../redux/actions/actions'
 
 
 export default function HomePostComponent() {
@@ -12,8 +12,12 @@ export default function HomePostComponent() {
   console.log(user)
 
   const dispatch = useDispatch()
-  const postList = useSelector(state => state.home.homepage)
+  const postList = useSelector(state => state.home.homepage[0])
   console.log(postList)
+
+  const [postSave, setPostSave] = useState({});
+  console.log(postSave)
+
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -21,6 +25,7 @@ export default function HomePostComponent() {
 
   useEffect (() => {
     dispatch(getPostList())
+    // dispatch(createPost())
   }, [])
 
 //   const value = postList.createdAt
@@ -85,6 +90,7 @@ export default function HomePostComponent() {
             as="textarea" 
             rows={3}
             placeholder='Di cosa vorresti parlare?'
+            onChange={e => setPostSave({ description: e.target.value })}
             >
             </Form.Control>
           </Form>
@@ -99,10 +105,7 @@ export default function HomePostComponent() {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={() => dispatch(createPost(postSave))}>
             Save Changes
           </Button>
         </Modal.Footer>
@@ -115,14 +118,7 @@ export default function HomePostComponent() {
       </div>
     </Container>
     
-    {/* POST:
-      - div con info account
-      - descrizione post
-      - immagine post 8se è presente)
-      - div sezione mi piace + commenti
-      - div per commentare, diffondere post, invia etc...
-    */}
-{postList.map((post, index) => (
+  {postList.map((post, index) => (
     post.user.image && post.user.name && post.user.surname ? (
       <Container key={index} className='border rounded mt-3'>
       <Row className=' d-flex justify-content-between '>
@@ -137,7 +133,7 @@ export default function HomePostComponent() {
           </Col>
           <Col xs={12} md={7} className='info-account p-0'>
             <p className='mb-0 fs-6 fw-semibold'>{post.user.name} {post.user.surname}</p>
-            {/* <p className='mb-0'>follower</p> */}
+
             <p className='mb-1'>{post.createdAt.slice(0, 10)} <i className="bi bi-dot"></i> <i className="bi bi-globe-americas"></i></p>
           </Col>
           <Col xs={12} md={2} className='btn-close-3dots-post p-0 text-end me-2'>
@@ -150,11 +146,6 @@ export default function HomePostComponent() {
         {post.text}
       </Row>
 
-      {/* <Row className='border-bottom d-flex justify-content-between'>
-        <Col><p>numero mi piace + icone</p></Col>
-        <Col><p>numero diffusioni post</p></Col>
-      </Row> */}
-
       <Row className='btn-post-active p-0'>
         <button className='text-secondary border-0 py-2'><i className="bi bi-hand-thumbs-up"></i>Consiglia</button>
         <button className='text-secondary border-0'><i className="bi bi-chat-right-text"></i>Commenta</button>
@@ -163,8 +154,8 @@ export default function HomePostComponent() {
       </Row>
     </Container>
     ) : null
+  ))} 
 
-  ))}    
     </>
   )
 }

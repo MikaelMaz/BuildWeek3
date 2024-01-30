@@ -20,7 +20,6 @@ const initialState = {
 const bigReducer = combineReducers({
    profile: profileReducer,
     home: homepageReducer
-    
 })
 
 const persistConfig = { key: "root", storage };
