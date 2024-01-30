@@ -68,8 +68,11 @@
     color: grey;
     border:0;
     border-radius: 50px;
+    margin-left: 1rem !important;
 }
 
-.btn-smile button {
-    background-color: white !important;
+.btn-smile {
+    border: 0 !important;
+    background: none!important;
+    color: grey !important;
 }

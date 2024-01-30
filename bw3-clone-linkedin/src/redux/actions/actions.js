@@ -158,6 +158,7 @@ export const createPost = (postSave) => {
       })
     })
     .then(resp => resp.json())
+    .then(json => console.log(json))
     .then(json => {
       return dispatch({ type: 'CREATE_POST', payload: json })
     })
