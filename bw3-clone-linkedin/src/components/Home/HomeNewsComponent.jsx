@@ -10,6 +10,7 @@ export default function HomeNewsComponent() {
 
   return (
     <>
+<<<<<<< HEAD
     <div>HomeNewsComponent</div>
     <Container className='border rounded py-3 my-3'>     
      <div className='HomeNewsComponentSidebar'>
@@ -107,6 +108,8 @@ export default function HomeNewsComponent() {
           <p className='text-center'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/1280px-LinkedIn_Logo.svg.png" className='immagineLogoLinkedin' alt="longo linkedin" /> LinkedIn Corporation <i className="bi bi-c-circle"></i> 2024</p>
         </Container>
       </footer>
+=======
+>>>>>>> 2ec3e004afbaa99d7febaa39984118d3f029c7ea
 
      {/* elenco di notizie */}
      {/* piccolo footer */}

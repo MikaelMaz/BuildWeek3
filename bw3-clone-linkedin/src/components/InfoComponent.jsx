@@ -6,10 +6,10 @@ export default function InfoComponent() {
   return (
     <>
         {/* Consigliato per te */}
-        <Container className='border-1 border-secondary border rounded-2 p-4 my-2'>
+        <Container className='border-1 border rounded-2 p-4 my-2'>
           <p className=' fw-bold fs-5'>Cosigliato per te</p>
           <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
-          <Row className='border-1 border-secondary border rounded-2 p-2 mt-3'>
+          <Row className='border-1 border rounded-2 p-2 mt-3'>
             <Col xs={2}>
 
             </Col>
@@ -28,7 +28,7 @@ export default function InfoComponent() {
           </Row>
         </Container>
         {/* Analisi */}
-        <Container className='border-1 border-secondary border rounded-2 pb-1'>
+        <Container className='border-1 border rounded-2 pb-1'>
           <div className='p-4'>
             <p className=' fw-bold fs-5'>Analisi</p>
             <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
@@ -43,16 +43,16 @@ export default function InfoComponent() {
             </Row>
             
           </div> 
-          <Row className='border-secondary border-top border-1'>
+          <Row className=' border-top border-1'>
             <Button variant='' className='fw-bold'>Mostra tutte le analisi</Button>
           </Row>
         </Container>
         {/* Risorse */}
-        <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
+        <Container className='border-1  border rounded-2 pb-1 my-2'>
           <div className='p-4'>
             <p className=' fw-bold fs-5'>Risorse</p>
             <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
-            <Row className='border-secondary border-bottom border-1 py-2'>
+            <Row className='border-bottom border-1 py-2'>
               <Col xs={1}>
               <i className="bi bi-volume-up-fill"></i>
               </Col>
@@ -75,16 +75,16 @@ export default function InfoComponent() {
               
             </Row>
           </div> 
-          <Row className='border-secondary border-top border-1'>
+          <Row className='border-top border-1'>
             <Button variant='' className='fw-bold'>Mostra tutte le risorse</Button>
           </Row>
         </Container>
         {/* Informazioni */}
-        <Container className='border-1 border-secondary border rounded-2 p-4 my-2'>
+        <Container className='border-1 border rounded-2 p-4 my-2'>
           <p className=' fw-bold fs-5'>Informazioni</p>
 
           <p>Descrizione</p>
-          <Row className='border-1 border-secondary border rounded-2 p-2 mt-3'>
+          <Row className='border-1 border rounded-2 p-2 mt-3'>
             <Col xs={1}>
             <i className="bi bi-gem"></i>
             </Col>
@@ -99,7 +99,7 @@ export default function InfoComponent() {
           </Row>
         </Container>
         {/* Attività */}
-        <Container className='border-1 border-secondary border rounded-2 pb-1'>
+        <Container className='border-1 border rounded-2 pb-1'>
           <div className='p-4'>
             <Row>
               <Col xs={4}>
@@ -117,14 +117,14 @@ export default function InfoComponent() {
               <p className='fw-bold'>Non hai ancora pubblicato nulla</p>
               <p className='font-small'>I post che condividi appariranno qui</p>
           </div> 
-          <Row className='border-secondary border-top border-1'>
+          <Row className='border-top border-1'>
             <Button variant='' className='fw-bold'>Mostra tutte le analisi</Button>
           </Row>
         </Container>
         {/* Esperienza */}
         <ExperienceComponent />
         {/* Formazione */}
-        <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
+        <Container className='border-1 border rounded-2 pb-1 my-2'>
           <Row>
             <Col xs={9}>
               <p className='fw-bold fs-5'>Formazione</p>
@@ -138,7 +138,7 @@ export default function InfoComponent() {
           </Row>
         </Container>
         {/* Competenze */}
-        <Container className='border-1 border-secondary border rounded-2 pb-1 my-2'>
+        <Container className='border-1 border rounded-2 pb-1 my-2'>
           <Row>
             <Col xs={9}>
               <p className='fw-bold fs-5'>Competenze</p>

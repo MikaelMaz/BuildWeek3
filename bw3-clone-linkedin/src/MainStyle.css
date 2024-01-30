@@ -90,9 +90,10 @@ button
 }
 
 .btnIconCamera {
-    border-radius: 50%;
-    right:1.5rem;
-    top:1rem;
+    border-radius: 50% !important;
+    right:1.5rem !important;
+    top:1rem !important;
+    background: white !important;
 }
 
 /* .imgBanner {
