@@ -1,5 +1,5 @@
-import React from 'react'
-import { Col, Container, Nav, NavDropdown, Navbar, OverlayTrigger, Popover, Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Col, Container, Nav, NavDropdown, Navbar, OverlayTrigger, Popover, Row, Collapse, Button } from 'react-bootstrap'
 
 
 export default function HomeNewsComponent() {
@@ -7,6 +7,8 @@ export default function HomeNewsComponent() {
   function alertClicked() {
     alert('You clicked the third ListGroupItem');
   }
+
+    const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -41,9 +43,31 @@ export default function HomeNewsComponent() {
         <p>3 giorni fa</p></li>
         <li>La protesta degli agricoltori si allarga <br />
         <p>4 giorni fa</p></li>
-      </ul>
-      <button className='d-flex align-items-center border-1 rounded'>Show more<i className="bi bi-caret-down-fill fs-6"></i></button>
-      {/* <button className='d-flex align-items-center border-1 rounded'>Mostra meno<i className="bi bi-caret-up-fill fs-6"></i></button> */}
+        <Collapse in={open}>
+        <div id="example-collapse-text">
+        <li>I 15 lavori in più rapida crescita in Italia <br />
+          <p className='d-flex align-items-center text-secondary'>Notizie principali <i className="bi bi-dot"></i> 227 lettori</p></li>
+        <li>Che 2023 è stato per il mercato del libro <br />
+           <p>10 ore fa</p></li>
+        <li>Verso la doggy bag obbligatoria <br />
+        <p>3 giorni fa</p></li>
+        <li>Selezioni aperte in Vaticano <br />
+        <p>3 giorni fa</p></li>
+        <li>La protesta degli agricoltori si allarga <br />
+        <p>4 giorni fa</p></li>
+        </div>
+        </Collapse>
+        <button onClick={() => setOpen(!open)}
+          aria-controls="example-collapse-text"
+          aria-expanded={open}
+          className='d-flex align-items-center border-1 rounded'>
+            {
+              !open ? 'Show more' : 'Mostra meno'
+            }
+            
+            
+        </button>
+      </ul>            
      </div>
      </Container>
 

@@ -63,19 +63,19 @@
 
     
 
-.HomeNewsComponentSidebar > ul > li {
+.HomeNewsComponentSidebar > ul > li, .HomeNewsComponentSidebar > ul > div > li {
 font-size: smaller;
 font-weight: bold;
 }
 
-.HomeNewsComponentSidebar > ul :hover {
+.HomeNewsComponentSidebar > ul :hover .HomeNewsComponentSidebar > ul :hover{
     cursor: pointer;
     background-color: rgb(201, 199, 199);
 }
 
     
 
-.HomeNewsComponentSidebar > ul > li > p{
+.HomeNewsComponentSidebar > ul > li > p, .HomeNewsComponentSidebar > ul > div > li > p{
     font-size: 12px;
     font-weight:300
 }
@@ -88,7 +88,7 @@ font-weight: bold;
 
     
 
-.HomeNewsComponentSidebar > ul > li{
+.HomeNewsComponentSidebar > ul > li, .HomeNewsComponentSidebar > ul > div > li {
     list-style: inside;
 }
 
