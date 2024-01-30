@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Container, Image, Row, Col, Button } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container, Image, Row, Col, Button, Modal, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import '../../homePost.css'
 import { getPostList } from '../../redux/actions/actions'
@@ -8,10 +8,16 @@ import { getPostList } from '../../redux/actions/actions'
 export default function HomePostComponent() {
 
   const imgProfile = useSelector(state=>state.profile.imageProfile)
+  const user = useSelector(state=>state.profile.user)
+  console.log(user)
 
   const dispatch = useDispatch()
-  const postList = useSelector((state) => state.homepage)
+  const postList = useSelector(state => state.home.homepage)
   console.log(postList)
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect (() => {
     dispatch(getPostList())
@@ -65,8 +71,42 @@ export default function HomePostComponent() {
           height={60} 
           className = "border border-3 ms-1">
         </Image>
-        <Button className='btn-post-home text-secondary px-3 py-1 ms-2 text-start border-secondary'> Avvia un post </Button>
+        <Button className='btn-post-home text-secondary px-3 py-1 ms-2 text-start border-secondary'  onClick={handleShow}> Avvia un post </Button>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{user[0].name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Control 
+            className='border-0'
+            as="textarea" 
+            rows={3}
+            placeholder='Di cosa vorresti parlare?'
+            >
+            </Form.Control>
+          </Form>
+          <div>
+            <Button className='btn-smile'><i className="bi bi-emoji-smile"></i></Button>
+            <Row className='btn-post-grey'>
+              <Button><i className="bi bi-card-image"></i></Button>
+              <Button><i className="bi bi-calendar3"></i></Button>
+              <Button><i className="bi bi-stars"></i></Button>
+              <Button><i className="bi bi-three-dots"></i></Button>
+            </Row>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <div className='btn-post-create mt-2'>
         <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-card-image me-2 text-primary"></i>Contenuti multimediali</button>

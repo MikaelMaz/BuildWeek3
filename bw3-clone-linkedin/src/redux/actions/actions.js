@@ -146,3 +146,17 @@ export const getPostList = () => {
   }
 }
 
+export const createPost = () => {
+  return (dispatch) => {
+    fetch(postListUrl, {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + apiKey
+      }
+    })
+    .then(resp => resp.json())
+    .then(json => {
+      return dispatch({ type: 'CREATE_POST', payload: json })
+    })
+  }
+}
