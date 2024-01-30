@@ -19,7 +19,7 @@ export default function ExperienceComponent() {
   const handleClose = () => { setShow(false) };
   const handleShow = () => setShow(true);
 
-  const handleCloseUpdate = () => setShowUpdate(false) ;
+  const handleCloseUpdate = () => setShowUpdate(false);
   const handleShowUpdate = () => setShowUpdate(true);
   const [experience, setExperience] = useState({
     company: '',
@@ -67,7 +67,14 @@ export default function ExperienceComponent() {
               <div>
                 <p className="fw-bold">{element.role}</p>
                 <p>{element.description}</p>
-                <p className="text-secondary">{element.startDate.slice(0, 10)} - {element.endDate.slice(0, 10)}</p>
+                
+                {
+                      element.startDate !== null && element.endDate !== null && element.startDate.length > 10 && element.endDate.length > 10
+                      ?
+                      (<p className="text-secondary">{element.startDate.slice(0, 10)} - {element.endDate.slice(0, 10)}</p> )
+                      :
+                      (<p className="text-secondary">{element.startDate} - {element.endDate}</p>)
+                    }
                 <p className="text-secondary">{element.area}</p>
                 <p></p>
               </div>
@@ -85,11 +92,24 @@ export default function ExperienceComponent() {
                     <Modal.Title>Modifica la competenza</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <input onChange={(e) => setExperience({ ...experience, company: e.target.value })} type="text" className="form-control" placeholder={element.company}/>
-                    <input onChange={(e) => setExperience({ ...experience, role: e.target.value })} type="text" className="form-control" placeholder={element.role}/>
-                    <input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder={element.startDate.slice(0, 10)}/>
-                    <input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder={element.endDate.slice(0, 10)}/>
-                    <input onChange={(e) => setExperience({ ...experience, description: e.target.value })} type="text" className="form-control" placeholder={element.description}/>
+                    <input onChange={(e) => setExperience({ ...experience, company: e.target.value })} type="text" className="form-control" placeholder={element.company} />
+                    <input onChange={(e) => setExperience({ ...experience, role: e.target.value })} type="text" className="form-control" placeholder={element.role} />
+                    {
+                      element.startDate !== null && element.startDate.length > 10  
+                      ? 
+                        (<input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder={element.startDate.slice(0, 10)} /> )
+                        :
+                        (<input onChange={(e) => setExperience({ ...experience, startDate: e.target.value })} type="text" className="form-control" placeholder={element.startDate} /> )
+                    }
+                    
+                    {
+                      element.endDate !== null && element.endDate.length > 10  
+                      ?
+                        (<input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder={element.endDate.slice(0, 10)} /> )
+                        :
+                        (<input onChange={(e) => setExperience({ ...experience, endDate: e.target.value })} type="text" className="form-control" placeholder={element.endDate} />)
+                    }
+                    <input onChange={(e) => setExperience({ ...experience, description: e.target.value })} type="text" className="form-control" placeholder={element.description} />
                     <input onChange={(e) => setExperience({ ...experience, area: e.target.value })} type="text" className="form-control" placeholder={element.area} />
                   </Modal.Body>
                   <Modal.Footer>
