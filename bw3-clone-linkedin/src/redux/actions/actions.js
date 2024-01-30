@@ -132,14 +132,15 @@ export const setImgProfile = (imageData) => {
 
 export const getPostList = () => {
   return (dispatch) => {
-    fetch(postListUrl, {
+    fetch(postListUrl , {
       headers: {
         Authorization: 'Bearer ' + apiKey
       }
     })
       .then(resp => resp.json())
       .then(json => {
-        return dispatch({ type: 'GET_POST_LIST', payload: json })
+        // console.log(json.slice(0, 20))
+        return dispatch({ type: 'GET_POST_LIST', payload: json.slice(4, 24) })
       })
       .catch(err => console.error(err))
   }

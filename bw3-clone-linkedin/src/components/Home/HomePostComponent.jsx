@@ -2,28 +2,64 @@ import React, { useEffect } from 'react'
 import { Container, Image, Row, Col, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import '../../homePost.css'
+import { getPostList } from '../../redux/actions/actions'
 
 
 export default function HomePostComponent() {
 
-  const userimg = useSelector((state) => state.profile.user)
+  const imgProfile = useSelector(state=>state.profile.imageProfile)
 
   const dispatch = useDispatch()
-
-
-  useEffect (() => {
-    dispatch
-  })
-
   const postList = useSelector((state) => state.homepage)
   console.log(postList)
+
+  useEffect (() => {
+    dispatch(getPostList())
+  }, [])
+
+//   const value = postList.createdAt
+
+// const humanTimeDiff = value => {
+//     const date = Date.parse(value);
+
+//     if(isNaN(date)) {
+//         return '';
+//     }
+
+//     const now = new Date();
+//     let delta = parseInt((now.getTime() - date) / 1000, 10);
+
+//     delta = delta + (now.getTimezoneOffset() * 60);
+
+//     if(delta < 60) {
+//         return 'less than a minute ago';
+//     }
+//     if(delta < 120) {
+//         return 'about a minute ago';
+//     }
+//     if(delta < (60 * 60)) {
+//         return `${parseInt(delta / 60, 10).toString()} minutes ago`;
+//     }
+//     if(delta < (120 * 60)) {
+//         return 'about an hour ago';
+//     }
+//     if(delta < (24 * 60 * 60)) {
+//         return  `about ${parseInt(delta / 3600, 10).toString()} hours ago`; 
+//     }
+//     if(delta < (48 * 60 * 60)) {
+//         return 'a day ago';
+//     }
+//     return `${parseInt(delta / 86400, 10).toString()} days ago`;
+
+// };
+
 
   return (
     <>
     <Container className='border rounded p-2'>
       <div className='d-flex'>
         <Image 
-          src={userimg[0].image}
+          src={imgProfile}
           roundedCircle 
           width={60} 
           height={60} 
@@ -46,12 +82,13 @@ export default function HomePostComponent() {
       - div sezione mi piace + commenti
       - div per commentare, diffondere post, invia etc...
     */}
-
-    <Container className='border rounded mt-3'>
+{postList.map((post, index) => (
+    post.user.image && post.user.name && post.user.surname ? (
+      <Container key={index} className='border rounded mt-3'>
       <Row className=' d-flex justify-content-between '>
           <Col xs={12} md={2} className='d-flex'>
             <Image 
-              src={userimg[0].image}
+              src={post.user.image}
               roundedCircle 
               width={60} 
               height={60} 
@@ -59,28 +96,24 @@ export default function HomePostComponent() {
             </Image>
           </Col>
           <Col xs={12} md={7} className='info-account p-0'>
-            <p className='mb-0 fs-6 fw-semibold'>Lavoropiù spa</p>
-            <p className='mb-0'>follower</p>
-            <p className='mb-1'>durata . <i className="bi bi-globe-americas"></i></p>
+            <p className='mb-0 fs-6 fw-semibold'>{post.user.name} {post.user.surname}</p>
+            {/* <p className='mb-0'>follower</p> */}
+            <p className='mb-1'>{post.createdAt.slice(0, 10)} <i className="bi bi-dot"></i> <i className="bi bi-globe-americas"></i></p>
           </Col>
           <Col xs={12} md={2} className='btn-close-3dots-post p-0 text-end me-2'>
             <button><i className="bi bi-three-dots"></i></button>
             <button><i className="bi bi-x ms-1"></i></button>
-            
-            
           </Col>
       </Row>
 
-      <Row className='post-content mt-2'>
-        <p>descrizione</p>
-        {/* img */}
-        <p>contenuto multimediale</p>
+      <Row className='post-content mt-2 mx-2 border-bottom pb-2'>
+        {post.text}
       </Row>
 
-      <Row className='border-bottom d-flex justify-content-between'>
+      {/* <Row className='border-bottom d-flex justify-content-between'>
         <Col><p>numero mi piace + icone</p></Col>
         <Col><p>numero diffusioni post</p></Col>
-      </Row>
+      </Row> */}
 
       <Row className='btn-post-active p-0'>
         <button className='text-secondary border-0 py-2'><i className="bi bi-hand-thumbs-up"></i>Consiglia</button>
@@ -89,6 +122,9 @@ export default function HomePostComponent() {
         <button className='text-secondary border-0'><i className="bi bi-send-fill"></i>Invia</button>
       </Row>
     </Container>
+    ) : null
+
+  ))}    
     </>
   )
 }
