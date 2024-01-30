@@ -13,7 +13,7 @@ export default function MainProfileComponent() {
     dispatch(addUserProfile())
   },[])
 
-  const user = useSelector(state => state.user)
+  const user = useSelector(state => state.profile.user)
   console.log(user)
 
   const [show, setShow] = useState(false);
