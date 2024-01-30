@@ -2,7 +2,7 @@ import React from 'react'
 import {addUserProfile, addExperienceList} from '../actions/actions'
 
 
-export const bigReducers = (state = [], action) => {
+export const profileReducer = (state = [], action) => {
 
     switch (action.type) {
       case 'ADD_USER':
@@ -35,11 +35,6 @@ export const bigReducers = (state = [], action) => {
             ...state,
             imageProfile: [action.payload]
           })
-          case 'SET_IMG_PROFILE2':
-            return ({
-              ...state,
-              imageProfile: [action.payload]
-            })
       default:
         break;
     }

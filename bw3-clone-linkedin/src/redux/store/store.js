@@ -1,16 +1,26 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { thunk }  from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { bigReducers } from '../reducers/reducers';
+import { profileReducer } from '../reducers/profileReducer';
+import homepageReducer from '../reducers/homepageReducer';
 
 const initialState = {
-    user: [],
-    imageProfile: [],
-    experience: []
+    profile:{
+        user: [],
+         imageProfile: [],
+         experience: [] 
+     },
+    homepage: []
 };
 
+const bigReducer = combineReducers({
+   profile: profileReducer,
+    homepage: homepageReducer
+    
+})
+
 const persistConfig = { key: "root", storage };
-const persistedReducer = persistReducer(persistConfig, bigReducers);
+const persistedReducer = persistReducer(persistConfig, bigReducer);
 export const store = createStore(persistedReducer, initialState, applyMiddleware(thunk));
 export const persistor = persistStore(store);

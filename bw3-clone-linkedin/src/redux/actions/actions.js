@@ -129,7 +129,3 @@ export const setImgProfile = (imageData) => {
   return ({ type: 'SET_IMG_PROFILE', payload: imageData })
 }
 
-export const setImgProfile2 = (imageUrl) => {
-  /* console.log("Ciao") */
-  return ({ type: 'SET_IMG_PROFILE2', payload: imageUrl })
-}

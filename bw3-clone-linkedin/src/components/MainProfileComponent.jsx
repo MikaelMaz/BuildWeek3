@@ -24,7 +24,7 @@ export default function MainProfileComponent() {
   const [imageData, setImageData] = useState(null);
   const [file, setFile] = useState(null);
 
-  const ProfilePic = useSelector(state => state.imageProfile[0])
+  const ProfilePic = useSelector(state => state.profile.imageProfile[0])
   /* const [image, setImage] = useState(null) */
 
   /* let localImageUrl

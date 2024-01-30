@@ -6,7 +6,7 @@ import { UserExperience, addExperience, deleteExperience, changeExperience } fro
 export default function ExperienceComponent() {
 
   const dispatch = useDispatch()
-  const user = useSelector(state => state.user)
+  const user = useSelector(state => state.profile.user)
   useEffect(() => {
     if (user.length > 0) {
       dispatch(UserExperience(user[0]._id))
@@ -32,7 +32,7 @@ export default function ExperienceComponent() {
 
   //console.log(UserExperience())
 
-  const exper = useSelector(state => state.experience)
+  const exper = useSelector(state => state.profile.experience)
   console.log(exper)
 
   const [experr, setExperr] = useState([]);
