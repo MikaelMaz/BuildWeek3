@@ -8,7 +8,7 @@ export default function NavbarComponent() {
 <>
  
  <Navbar  data-bs-theme="light" className='defaultNavbar bg-white border-bottom border-tertiary p-1 justify-content-center sticky-top'>
-   <Container fluid className='m-0 d-flex justify-content-between'>
+   <div className='m-0 d-flex justify-content-center'>
       <Navbar.Brand href="#" className='mx-1'>
             <img className='logo' src="/icon.png" alt=""  />
       </Navbar.Brand>
@@ -58,7 +58,7 @@ export default function NavbarComponent() {
                   </div> </Nav.Link>
        </div>
      </Nav>
-   </Container>
+   </div>
  </Navbar>
  </>
 

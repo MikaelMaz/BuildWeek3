@@ -7,12 +7,13 @@ import { Button, Card, ListGroup } from 'react-bootstrap'
 
 export default function HomeProfileComponent() {
 
-  const username = useSelector(state=>state.user)
+  const username = useSelector(state=>state.profile.user)
+  const imgProfile = useSelector(state=>state.profile.imageProfile)
   
   console.log(username)
 
   return (
-    <>
+    username &&
     <div className='home-profile-global'>
 
     <Container className='border rounded p-3 home-profile'>
@@ -22,7 +23,7 @@ export default function HomeProfileComponent() {
         </div>
         <div className='d-flex justify-content-center'>
         <Image 
-              src={username[0].image}
+              src={imgProfile}
               roundedCircle 
               width={70} 
               height={70} 
@@ -114,7 +115,6 @@ export default function HomeProfileComponent() {
     </div>
     
 
-    </>
     
   )
 }
