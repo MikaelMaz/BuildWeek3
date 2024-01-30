@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Image, Row, Col, Button, Modal, Form } from 'react-bootstrap'
+import { Container, Image, Row, Col, Button, Modal, Form, ModalBody } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import '../../homePost.css'
 import { getPostList, createPost } from '../../redux/actions/actions'
@@ -104,7 +104,10 @@ export default function HomePostComponent() {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={() => dispatch(createPost(postSave))}>
+          <Button 
+            variant="primary" 
+            onClick={() => dispatch(createPost(postSave))}
+          >
             Save Changes
           </Button>
         </Modal.Footer>
@@ -127,7 +130,7 @@ export default function HomePostComponent() {
               roundedCircle 
               width={60} 
               height={60} 
-              className = "border border-3 mt-2">
+              className = "border border-3 mt-2 me-2">
             </Image>
           </Col>
           <Col xs={12} md={7} className='info-account p-0'>
