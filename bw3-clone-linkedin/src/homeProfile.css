@@ -25,14 +25,12 @@
     z-index: -1!important;
 } */
 
-.home-profile .mainBgHome {
-    height: 25%;
-    width: 20%;
+ .mainBgHome {
+    height: 30%;
+    width: 100%;
     background-image: url("https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg");
-    background-position: center;
-    background-size: 462px;
-    height: 54px;
-    margin: -15px -17px 0;
+    
+    background-repeat: no-repeat;
 }
 
 .img-profile-home {
@@ -97,20 +95,4 @@ font-weight: bold;
 
 .cursor-pointer{
     cursor: pointer;
-}
-
-
-.home-profile .mainBgHome {
-    height: 25%;
-    width: 20%;
-    background-image: url("https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg");
-    background-position: center;
-    background-size: 462px;
-    height: 54px;
-    margin: -15px -17px 0;
-}
-
-.img-profile-home {
-    margin: -60px auto 1.2rem;
-    margin-bottom: 1rem;
 }

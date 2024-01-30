@@ -2,3 +2,4 @@ export const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyODg3
 export const usersListUrl = 'https://striveschool-api.herokuapp.com/api/profile/'
 export const userProfileUrl = 'https://striveschool-api.herokuapp.com/api/profile/me'
 export const experiencesListUrl = 'https://striveschool-api.herokuapp.com/api/profile/'
+export const postListUrl = 'https://striveschool-api.herokuapp.com/api/posts/'
