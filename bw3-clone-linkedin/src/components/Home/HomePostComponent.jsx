@@ -6,7 +6,7 @@ import '../../homePost.css'
 
 export default function HomePostComponent() {
 
-  const userimg = useSelector((state) => state.user)
+  const userimg = useSelector((state) => state.profile.user)
 
   return (
     <>

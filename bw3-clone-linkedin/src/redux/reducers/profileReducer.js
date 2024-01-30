@@ -2,7 +2,7 @@ import React from 'react'
 import {addUserProfile, addExperienceList} from '../actions/actions'
 
 
-export const profileReducer = (state = [], action) => {
+export const profileReducer = (state = {}, action) => {
 
     switch (action.type) {
       case 'ADD_USER':
