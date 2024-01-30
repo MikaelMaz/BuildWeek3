@@ -37,8 +37,12 @@
     background: none;
 }
 
-.btn-post-active button:hover {
+.btn-post-active button:hover, .btn-post-home:hover  {
     background-color: rgb(236, 236, 236) !important;
+}
+
+.btn-post-home {
+    background-color: white !important;
 }
 
 .info-account {
@@ -49,7 +53,12 @@
 
 .btn-close-3dots-post button {
     border: none !important;
-    padding: 0 !important;
+    padding: 0 0.2rem !important;
     margin: 0 !important;
     background: none !important;
+    border-radius: 50px;
+}
+
+.btn-close-3dots-post button:hover {
+    background-color: rgb(236, 236, 236) !important;
 }
