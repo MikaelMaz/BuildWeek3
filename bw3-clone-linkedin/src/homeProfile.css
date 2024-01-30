@@ -25,3 +25,29 @@
     z-index: -1!important;
 } */
 
+/* Parte HomeNewsComponent */
+
+.HomeNewsComponentSidebar > ul > li {
+    font-size: smaller;
+    font-weight: bold;
+}
+.HomeNewsComponentSidebar > ul  :hover {
+    cursor: pointer;
+    background-color: rgb(201, 199, 199);
+}
+
+.HomeNewsComponentSidebar > ul > li > p{
+    font-size: 12px;
+    font-weight:300
+}
+
+.immagineLogoLinkedin {
+    width: 5em;
+}
+
+.HomeNewsComponentSidebar > ul > li{
+    list-style: inside;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
