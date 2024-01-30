@@ -16,19 +16,19 @@ export default function HomeProfileComponent() {
     username &&
     <div className='home-profile-global'>
 
-    <Container className='border rounded p-3 home-profile'>
-      <div className='border-bottom'>
-         <div className='mainBgHome text-end position-absolute'>
+    <Container className='border rounded p-3'>
+      <div className='border-bottom position-relative'>
+         <div className='mainBgHome position-absolute'>
           {/* background con il banner */}
         </div>
         <div className='d-flex justify-content-center'>
-        <Image 
+          <Image 
               src={imgProfile}
               roundedCircle 
               width={70} 
               height={70} 
               className = "border border-3 border ms-3d-block mb-2 z-1">
-            </Image>
+          </Image>
         </div>
         <div className='text-center mb-2'>
           <h6 className='fw-semibold mb-0'>Ti diamo il benvenuto </h6>
