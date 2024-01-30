@@ -14,7 +14,6 @@ export default function HomeProfileComponent() {
   return (
     <>
     <div className='home-profile-global'>
-      <div>HomeProfileComponent</div>
 
     <Container className='border rounded p-3 home-profile'>
       <div className='border-bottom'>

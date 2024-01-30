@@ -10,13 +10,6 @@ export default function HomePostComponent() {
 
   return (
     <>
-    <div>HomePostComponent</div>
-
-    {/* box inserire nuovi post:
-      - div con immagine acc e input
-      - div con elementi da inserire nel post 
-    */}
-
     <Container className='border rounded p-2'>
       <div className='d-flex'>
         <Image 
@@ -24,15 +17,15 @@ export default function HomePostComponent() {
           roundedCircle 
           width={60} 
           height={60} 
-          className = "border border-3 ms-3">
+          className = "border border-3 ms-1">
         </Image>
-        <Button variant="outline-secondary" className='btn-post-home px-3 py-1 ms-2 text-start border-secondary'> Avvia un post </Button>
+        <Button className='btn-post-home text-secondary px-3 py-1 ms-2 text-start border-secondary'> Avvia un post </Button>
       </div>
 
       <div className='btn-post-create mt-2'>
         <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-card-image me-2 text-primary"></i>Contenuti multimediali</button>
         <button className='border-0 py-2 mx-2 rounded fw-semibold'><i className="bi bi-calendar3 me-2 text-warning"></i>Evento</button>
-        <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-file-text me-2 text-danger"></i>Scrivi un articolo</button>
+        <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-file-text me-2 text-danger text-center"></i>Scrivi un articolo</button>
       </div>
     </Container>
     
