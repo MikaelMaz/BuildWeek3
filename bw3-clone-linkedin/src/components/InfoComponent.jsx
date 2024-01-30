@@ -8,7 +8,7 @@ export default function InfoComponent() {
         {/* Consigliato per te */}
         <Container className='border-1 border rounded-2 p-4 my-2'>
           <p className=' fw-bold fs-5'>Cosigliato per te</p>
-          <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
+          <p className='font-small d-flex align-items-center'><i className="bi bi-eye-fill pe-2"></i> Solo per te</p>
           <Row className='border-1 border rounded-2 p-2 mt-3'>
             <Col xs={2}>
 
@@ -31,7 +31,7 @@ export default function InfoComponent() {
         <Container className='border-1 border rounded-2 pb-1'>
           <div className='p-4'>
             <p className=' fw-bold fs-5'>Analisi</p>
-            <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
+            <p className='font-small d-flex align-items-center'><i className="bi bi-eye-fill pe-2"></i> Solo per te</p>
             <Row>
               <Col xs={1}>
                 <i className="bi bi-people-fill"></i>
@@ -51,7 +51,7 @@ export default function InfoComponent() {
         <Container className='border-1  border rounded-2 pb-1 my-2'>
           <div className='p-4'>
             <p className=' fw-bold fs-5'>Risorse</p>
-            <p className='font-small'><i className="bi bi-eye-fill"></i> Solo per te</p>
+            <p className='font-small d-flex align-items-center'><i className="bi bi-eye-fill pe-2"></i> Solo per te</p>
             <Row className='border-bottom border-1 py-2'>
               <Col xs={1}>
               <i className="bi bi-volume-up-fill"></i>

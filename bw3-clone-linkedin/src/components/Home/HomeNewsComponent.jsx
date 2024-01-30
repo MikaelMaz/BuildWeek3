@@ -63,9 +63,7 @@ export default function HomeNewsComponent() {
           className='d-flex align-items-center border-1 rounded'>
             {
               !open ? 'Show more' : 'Mostra meno'
-            }
-            
-            
+            }            
         </button>
       </ul>            
      </div>
