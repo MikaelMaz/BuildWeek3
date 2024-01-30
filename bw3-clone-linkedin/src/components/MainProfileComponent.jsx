@@ -53,7 +53,9 @@ export default function MainProfileComponent() {
       // Ad esempio, inviare formData tramite una richiesta fetch
     }
   };
-
+setTimeout(() => {
+  
+})
   const handleUpload = () => {
     // Qui puoi aggiornare lo stato con i dati dell'immagine se necessario
     // Per esempio, potresti fare qualcosa come setImageData(formData.get('image'))
@@ -61,12 +63,15 @@ export default function MainProfileComponent() {
     // In questo esempio, l'immagine viene convertita in URL di dati base64 e memorizzata nello stato
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => {
+      reader.onloadend = () => { 
         setImageData(reader.result);
         console.log(imageData)
+        dispatch(setImgProfile(reader.result))
+        /* setTimeout(() => {
+          dispatch(setImgProfile(reader.result))
+        },1000) */
       };
       reader.readAsDataURL(file);
-      
     }
   };
   /* const handleSubmit = (e) => {
@@ -100,8 +105,8 @@ export default function MainProfileComponent() {
 
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>Close</Button>
-              <Button variant="primary" onClick={ ()=>{handleUpload(); dispatch(setImgProfile(imageData)) }}>Save changes</Button>
+              <Button variant="secondary" onClick={ ()=>{handleClose();}}>Close</Button>
+              <Button variant="primary" onClick={ ()=>{handleUpload();}}>Save changes</Button>
             </Modal.Footer>
           </Modal>
           </div>
