@@ -11,13 +11,15 @@ const initialState = {
          imageProfile: [],
          experience: [] 
      },
-    homepage: []
+    home: {
+        homepage: [],
+        post: []  
+    }
 };
 
 const bigReducer = combineReducers({
    profile: profileReducer,
-    homepage: homepageReducer
-    
+    home: homepageReducer
 })
 
 const persistConfig = { key: "root", storage };

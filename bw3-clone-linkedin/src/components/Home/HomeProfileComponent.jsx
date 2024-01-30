@@ -16,12 +16,12 @@ export default function HomeProfileComponent() {
     username &&
     <div className='home-profile-global'>
 
-    <Container className='border rounded p-3'>
+    <div className='border rounded'>
       <div className='border-bottom position-relative'>
          <div className='mainBgHome position-absolute'>
           {/* background con il banner */}
         </div>
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center pt-3'>
           <Image 
               src={imgProfile}
               roundedCircle 
@@ -36,27 +36,28 @@ export default function HomeProfileComponent() {
           <a id='link-add-photo-home' className='text-primary text-decoration-none '>Aggiungi una foto</a>
         </div>
       </div>
-
-      <div className='border-bottom d-flex justify-content-between my-3'>
-        <div>
-          <p className='text-secondary mb-0'>Collegamenti</p>
-          <p className='fw-semibold'>Espandi la tua rete</p>
+      <Container className='pb-2'>
+        <div className='border-bottom d-flex justify-content-between my-3'>
+          <div>
+            <p className='text-secondary mb-0'>Collegamenti</p>
+            <p className='fw-semibold'>Espandi la tua rete</p>
+          </div>
+          <div>
+            <p className='text-primary fw-semibold'>24</p>
+          </div>
         </div>
-        <div>
-          <p className='text-primary fw-semibold'>24</p>
+
+        <div className='border-bottom '>
+          <p className='text-secondary mb-0 lh-1'>Accedi a strumenti e informazioni in esclusiva</p>
+          <p className='fw-semibold d-flex align-items-center'> <i className="bi bi-square-fill text-warning me-2"></i> Prova Premium per 0 EUR</p>
         </div>
-      </div>
 
-      <div className='border-bottom '>
-        <p className='text-secondary mb-0 lh-1'>Accedi a strumenti e informazioni in esclusiva</p>
-         <p className='fw-semibold d-flex align-items-center'> <i className="bi bi-square-fill text-warning me-2"></i> Prova Premium per 0 EUR</p>
-      </div>
-
-      <div className='d-flex align-items-center align-content-center mt-2'>
-        <i className="bi bi-bookmark-fill fs-6"></i>
-        <p className='fw-semibold mb-0 ms-2'>I miei elementi</p>
-      </div>
-    </Container>
+        <div className='d-flex align-items-center align-content-center mt-2'>
+          <i className="bi bi-bookmark-fill fs-6"></i>
+          <p className='fw-semibold mb-0 ms-2'>I miei elementi</p>
+        </div>
+      </Container>
+    </div>
 
 {/* prova con la card di bootstrap react */}
 

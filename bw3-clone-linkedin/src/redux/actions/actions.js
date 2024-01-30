@@ -139,10 +139,27 @@ export const getPostList = () => {
     })
       .then(resp => resp.json())
       .then(json => {
-        // console.log(json.slice(0, 20))
+        console.log(json.slice(0, 20))
         return dispatch({ type: 'GET_POST_LIST', payload: json.slice(4, 24) })
       })
       .catch(err => console.error(err))
   }
 }
 
+export const createPost = (postSave) => {
+  return (dispatch) => {
+    fetch(postListUrl, {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + apiKey
+      },
+      body: JSON.stringify({
+        'text': postSave.text
+      })
+    })
+    .then(resp => resp.json())
+    .then(json => {
+      return dispatch({ type: 'CREATE_POST', payload: json })
+    })
+  }
+}

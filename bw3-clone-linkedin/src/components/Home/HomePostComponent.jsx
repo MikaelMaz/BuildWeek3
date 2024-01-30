@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react'
-import { Container, Image, Row, Col, Button } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container, Image, Row, Col, Button, Modal, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import '../../homePost.css'
-import { getPostList } from '../../redux/actions/actions'
+import { getPostList, createPost } from '../../redux/actions/actions'
 
 
 export default function HomePostComponent() {
 
   const imgProfile = useSelector(state=>state.profile.imageProfile)
+  const user = useSelector(state=>state.profile.user)
+  console.log(user)
 
   const dispatch = useDispatch()
-  const postList = useSelector((state) => state.homepage)
+  const postList = useSelector(state => state.home.homepage[0])
   console.log(postList)
+
+  const [postSave, setPostSave] = useState({text:''});
+  console.log(postSave)
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect (() => {
     dispatch(getPostList())
+    // dispatch(createPost())
   }, [])
 
 //   const value = postList.createdAt
@@ -65,8 +75,40 @@ export default function HomePostComponent() {
           height={60} 
           className = "border border-3 ms-1">
         </Image>
-        <Button className='btn-post-home text-secondary px-3 py-1 ms-2 text-start border-secondary'> Avvia un post </Button>
+        <Button className='btn-post-home text-secondary px-3 py-1 ms-2 text-start border-secondary'  onClick={handleShow}> Avvia un post </Button>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{user[0].name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Control 
+            className='border-0'
+            as="textarea" 
+            rows={3}
+            placeholder='Di cosa vorresti parlare?'
+            onChange={e => setPostSave({...postSave, text: e.target.value })}
+            >
+            </Form.Control>
+          </Form>
+          <div>
+            <Button className='btn-smile'><i className="bi bi-emoji-smile"></i></Button>
+            <Row className='btn-post-grey'>
+              <Button><i className="bi bi-card-image"></i></Button>
+              <Button><i className="bi bi-calendar3"></i></Button>
+              <Button><i className="bi bi-stars"></i></Button>
+              <Button><i className="bi bi-three-dots"></i></Button>
+            </Row>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => dispatch(createPost(postSave))}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <div className='btn-post-create mt-2'>
         <button className='border-0 py-2 rounded fw-semibold'><i className="bi bi-card-image me-2 text-primary"></i>Contenuti multimediali</button>
@@ -75,14 +117,7 @@ export default function HomePostComponent() {
       </div>
     </Container>
     
-    {/* POST:
-      - div con info account
-      - descrizione post
-      - immagine post 8se è presente)
-      - div sezione mi piace + commenti
-      - div per commentare, diffondere post, invia etc...
-    */}
-{postList.map((post, index) => (
+  {postList.map((post, index) => (
     post.user.image && post.user.name && post.user.surname ? (
       <Container key={index} className='border rounded mt-3'>
       <Row className=' d-flex justify-content-between '>
@@ -97,7 +132,7 @@ export default function HomePostComponent() {
           </Col>
           <Col xs={12} md={7} className='info-account p-0'>
             <p className='mb-0 fs-6 fw-semibold'>{post.user.name} {post.user.surname}</p>
-            {/* <p className='mb-0'>follower</p> */}
+
             <p className='mb-1'>{post.createdAt.slice(0, 10)} <i className="bi bi-dot"></i> <i className="bi bi-globe-americas"></i></p>
           </Col>
           <Col xs={12} md={2} className='btn-close-3dots-post p-0 text-end me-2'>
@@ -110,11 +145,6 @@ export default function HomePostComponent() {
         {post.text}
       </Row>
 
-      {/* <Row className='border-bottom d-flex justify-content-between'>
-        <Col><p>numero mi piace + icone</p></Col>
-        <Col><p>numero diffusioni post</p></Col>
-      </Row> */}
-
       <Row className='btn-post-active p-0'>
         <button className='text-secondary border-0 py-2'><i className="bi bi-hand-thumbs-up"></i>Consiglia</button>
         <button className='text-secondary border-0'><i className="bi bi-chat-right-text"></i>Commenta</button>
@@ -123,8 +153,8 @@ export default function HomePostComponent() {
       </Row>
     </Container>
     ) : null
+  ))} 
 
-  ))}    
     </>
   )
 }
