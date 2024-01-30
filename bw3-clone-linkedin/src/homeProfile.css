@@ -27,12 +27,12 @@
 
 .home-profile .mainBgHome {
     height: 25%;
-    width: 18%;
+    width: 20%;
     background-image: url("https://t4.ftcdn.net/jpg/02/40/63/55/240_F_240635575_EJifwRAbKsVTDnA3QE0bCsWG5TLhUNEZ.jpg");
     background-position: center;
     background-size: 462px;
     height: 54px;
-    margin: -12px -12px 0;
+    margin: -15px -17px 0;
 }
 
 .img-profile-home {

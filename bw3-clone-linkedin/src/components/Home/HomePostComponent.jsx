@@ -17,7 +17,7 @@ export default function HomePostComponent() {
           roundedCircle 
           width={60} 
           height={60} 
-          className = "border border-3 ms-3">
+          className = "border border-3 ms-1">
         </Image>
         <Button className='btn-post-home text-secondary px-3 py-1 ms-2 text-start border-secondary'> Avvia un post </Button>
       </div>
